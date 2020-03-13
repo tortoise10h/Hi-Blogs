@@ -104,5 +104,6 @@ Hình minh họa cho các giá trị ở trên:
 ## Link tham khảo
 * W3School [ở đây](https://www.w3schools.com/css/css3_flexbox.asp)
 * CSS-tricks [ở đây](https://css-tricks.com/almanac/properties/a/align-content/) (đây là phần link của **align-content** kéo xuống dưới sẽ thấy phần related với các property khác)
+
 <<<<<Blog-Meta-Data>>>>>
 title:CSS Flexbox phần 1: Parent;publishMode:publish;tags:css;date:2018/09/22 00:00:00;
