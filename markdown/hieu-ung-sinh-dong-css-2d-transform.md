@@ -1,4 +1,3 @@
-
 ## Animation cùng CSS 2D transforms
 Ở bài viết cũ mình đã chia sẽ về các methods để biến đổi một element như `translate`, `rotate`,... ([Ở đây nè](https://kipalog.com/posts/Tim-hieu-ve-CSS-2D-transforms)). Trong bài viết đó thì trông mấy cái đó chả có gì thú vị ngoài việc làm cho element trở nên dị dạng <i class='em em-sleeping'></i>. Cho nên trong bài này chúng ta sẽ vận dụng một số thứ đã có trước đó của CSS kết hợp với mấy cái transform này, xem nó thú vị tới đâu <i class='em em-laughing'></i>.
 ### Phù phép cho translate(), rotate(), skew() và scale()
@@ -42,6 +41,7 @@ Hoặc chúng ta có thể làm thêm một ví dụ khác sinh động hơn. Tr
 Mình tham khảo ở:
 * W3School [Ở đây](https://www.w3schools.com/css/css3_2dtransforms.asp)
 * The art of web [Đây nè](https://www.the-art-of-web.com/css/css-animation/)
+
 
 
 <<<<<Blog-Meta-Data>>>>>
