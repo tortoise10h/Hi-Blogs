@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -17,8 +16,10 @@
 
   <body>
     <div class="blog-logo">
-      <a href="file:/D:/Hi-Blogs/index.html"
-        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      <a href="https://tortoise10h.github.io/Hi-Blogs/index.html"
+        ><img
+          src="../img/engine-img/shiba-with-glasses.jpg"
+          alt="Blog Logo Image"
       /></a>
     </div>
     <div class="container">
@@ -32,119 +33,278 @@
         </div>
       </div>
       <div class="main-content" id="mainContent">
-        <p>Ở bài trước chúng ta đã tìm hiểu về <a href="https://kipalog.com/posts/CSS-grid-layout-model--Container--Phan-1">các property của container trong css grid layout module</a>. Thì tiếp theo phần 1, bài này chúng ta sẽ tìm hiểu nốt phần còn lại đó chính là <strong>các property chính của phần items</strong>.</p>
-<h2>Các property của items</h2>
-<h3>grid-column / grid-row</h3>
-<p>Như chúng ta đã biết ở bài trước, trong <strong>grid</strong> các items được chia theo hàng và cột,  và ở giữa mỗi hàng và cột thì chúng ta sẽ có những đường như thế này:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/m12ykhlryc_image.png" alt="alt text">
-(<em>Nguồn w3school</em>)
-Khi sử dụng <strong>grid-column</strong> hay <strong>grid-row</strong> là chúng ta sẽ phải dùng đến những đường thẳng này.</p>
-<h4>grid-column</h4>
-<p><strong>grid-column</strong> này là cách viết tắc cho <strong>grid-column-start</strong> và <strong>grid-column-end</strong> và công dụng của <strong>grid-column-start</strong> và <strong>grid-column-end</strong> như thế nào thì chúng ta sẽ đi đến ví dụ sau, đây là một <strong>container</strong> với các <strong>items</strong> bên trong như thường lệ (và trong hình dưới mình sẽ đánh số cho các đường thẳng ở dòng và cột để tiện giải thích):
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/t30d3o824j_image.png" alt="alt text">
-Nếu ta thêm vào items số 1 như sau:</p>
-<pre><code>/*chúng ta dùng pseudo class để chọn div số 1 - tức item số 1*/
+        <p>
+          Ở bài trước chúng ta đã tìm hiểu về
+          <a
+            href="https://kipalog.com/posts/CSS-grid-layout-model--Container--Phan-1"
+            >các property của container trong css grid layout module</a
+          >. Thì tiếp theo phần 1, bài này chúng ta sẽ tìm hiểu nốt phần còn lại
+          đó chính là <strong>các property chính của phần items</strong>.
+        </p>
+        <h2>Các property của items</h2>
+        <h3>grid-column / grid-row</h3>
+        <p>
+          Như chúng ta đã biết ở bài trước, trong <strong>grid</strong> các
+          items được chia theo hàng và cột, và ở giữa mỗi hàng và cột thì chúng
+          ta sẽ có những đường như thế này:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/m12ykhlryc_image.png"
+            alt="alt text"
+          />
+          (<em>Nguồn w3school</em>) Khi sử dụng <strong>grid-column</strong> hay
+          <strong>grid-row</strong> là chúng ta sẽ phải dùng đến những đường
+          thẳng này.
+        </p>
+        <h4>grid-column</h4>
+        <p>
+          <strong>grid-column</strong> này là cách viết tắc cho
+          <strong>grid-column-start</strong> và
+          <strong>grid-column-end</strong> và công dụng của
+          <strong>grid-column-start</strong> và
+          <strong>grid-column-end</strong> như thế nào thì chúng ta sẽ đi đến ví
+          dụ sau, đây là một <strong>container</strong> với các
+          <strong>items</strong> bên trong như thường lệ (và trong hình dưới
+          mình sẽ đánh số cho các đường thẳng ở dòng và cột để tiện giải thích):
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/t30d3o824j_image.png"
+            alt="alt text"
+          />
+          Nếu ta thêm vào items số 1 như sau:
+        </p>
+        <pre><code>/*chúng ta dùng pseudo class để chọn div số 1 - tức item số 1*/
 .grid-container &gt; div:nth-child(1){
         grid-column-start:1;
         grid-column-end:3;
     }
 </code></pre>
-<p>Ta sẽ có kết quả như sau:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7wf0vo9ggj_image.png" alt="alt text">
-Như chúng ta đã thấy, sau khi sử dụng <code>grid-column-start:1;</code> và <code>grid-column-end:3;</code> thì chiều rộng của items 1 đã trở nên gấp đôi các items khác, nói đúng nhất là bình thường chiều rộng của items 1 sẽ từ <strong>line 1c</strong> cho tới <strong>line 2c</strong> như hình ban đầu (<strong>line 1c</strong>, <strong>line 2c</strong> là mình dùng để ám chỉ các đường thẳng của cột) sau khi sử dụng <code>grid-column-start:1;</code> và <code>grid-column-end:3;</code> có nghĩa là ta sẽ quy định lại item 1 sẽ có chiều rộng từ <strong>line 1c</strong> đến tận <strong>line 3c</strong> cho nên ta thấy nó sẽ kéo dài ra bằng hai item bình thường. Ta sẽ tiếp tục thực hiện lên một item khác, ta sẽ chọn item 12</p>
-<pre><code>.grid-container &gt; div:nth-child(12){
+        <p>
+          Ta sẽ có kết quả như sau:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7wf0vo9ggj_image.png"
+            alt="alt text"
+          />
+          Như chúng ta đã thấy, sau khi sử dụng
+          <code>grid-column-start:1;</code> và
+          <code>grid-column-end:3;</code> thì chiều rộng của items 1 đã trở nên
+          gấp đôi các items khác, nói đúng nhất là bình thường chiều rộng của
+          items 1 sẽ từ <strong>line 1c</strong> cho tới
+          <strong>line 2c</strong> như hình ban đầu (<strong>line 1c</strong>,
+          <strong>line 2c</strong> là mình dùng để ám chỉ các đường thẳng của
+          cột) sau khi sử dụng <code>grid-column-start:1;</code> và
+          <code>grid-column-end:3;</code> có nghĩa là ta sẽ quy định lại item 1
+          sẽ có chiều rộng từ <strong>line 1c</strong> đến tận
+          <strong>line 3c</strong> cho nên ta thấy nó sẽ kéo dài ra bằng hai
+          item bình thường. Ta sẽ tiếp tục thực hiện lên một item khác, ta sẽ
+          chọn item 12
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(12){
         grid-column-start:1;
         grid-column-end:5;
     }
 </code></pre>
-<p>Lần này ta sẽ cho chiều dài của item 12 kéo dài từ <strong>line 1c</strong> cho đến <strong>line 5c</strong>, ta được kết quả như sau:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/afehpoz1hg_image.png" alt="alt text">
-Và ta có thể sử dụng cách viết tắc <strong>grid-column</strong> thay thế cho cả 2 <strong>grid-column-start</strong> và <strong>grid-column-end</strong>, ví dụ ta dùng grid-column cho đoạn CSS của item 1 ở trên thì sẽ là:</p>
-<pre><code>.grid-container &gt; div:nth-child(1){
+        <p>
+          Lần này ta sẽ cho chiều dài của item 12 kéo dài từ
+          <strong>line 1c</strong> cho đến <strong>line 5c</strong>, ta được kết
+          quả như sau:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/afehpoz1hg_image.png"
+            alt="alt text"
+          />
+          Và ta có thể sử dụng cách viết tắc <strong>grid-column</strong> thay
+          thế cho cả 2 <strong>grid-column-start</strong> và
+          <strong>grid-column-end</strong>, ví dụ ta dùng grid-column cho đoạn
+          CSS của item 1 ở trên thì sẽ là:
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(1){
        grid-column:1 / 3;
    }
 </code></pre>
-<p>chúng ta sẽ được kết quả tương tự ở trên. syntax của <strong>grid-column</strong> là:</p>
-<pre><code>grid-column: đườngbắtđầu /  đườngkếtthúc
+        <p>
+          chúng ta sẽ được kết quả tương tự ở trên. syntax của
+          <strong>grid-column</strong> là:
+        </p>
+        <pre><code>grid-column: đườngbắtđầu /  đườngkếtthúc
 </code></pre>
-<p>Ngoài ra nếu thay vì ta viết <code>grid-column:1 / 3</code> thì ta có thể viết <code>grid-column: 1 / span 2</code>. Ở cách viết trên  số <code>1</code> vẫn là đánh dấu cho điểm bắt đầu, tuy nhiên <code>span 2</code> ở đây có nghĩa là nó sẽ kéo từ <strong>line 1c</strong> và vượt qua <strong>line 2c</strong> cho đến khi chạm tới đầu <strong>line 3c</strong> thì hết. Ta sẽ thử lên item 4 như sau</p>
-<pre><code>.grid-container &gt; div:nth-child(4){
+        <p>
+          Ngoài ra nếu thay vì ta viết <code>grid-column:1 / 3</code> thì ta có
+          thể viết <code>grid-column: 1 / span 2</code>. Ở cách viết trên số
+          <code>1</code> vẫn là đánh dấu cho điểm bắt đầu, tuy nhiên
+          <code>span 2</code> ở đây có nghĩa là nó sẽ kéo từ
+          <strong>line 1c</strong> và vượt qua <strong>line 2c</strong> cho đến
+          khi chạm tới đầu <strong>line 3c</strong> thì hết. Ta sẽ thử lên item
+          4 như sau
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(4){
        grid-column:1 / span 3;
    }
 </code></pre>
-<p>Kết quả:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6j8dmvm6bb_image.png" alt="alt text">
-Chúng ta thấy item 4 kéo dài từ <strong>line 1c</strong> và chạm đến <strong>line 4c</strong> các viết đó cũng giống như viết thế này:</p>
-<pre><code>.grid-container &gt; div:nth-child(4){
+        <p>
+          Kết quả:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6j8dmvm6bb_image.png"
+            alt="alt text"
+          />
+          Chúng ta thấy item 4 kéo dài từ <strong>line 1c</strong> và chạm đến
+          <strong>line 4c</strong> các viết đó cũng giống như viết thế này:
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(4){
        grid-column:1 / 4;
    }
 </code></pre>
-<h4>grid-row</h4>
-<p>Ngược lại với <strong>grid-column</strong> thì chúng ta có <strong>grid-row</strong>, cách thức hoạt động của <strong>grid-row</strong> thì cũng giống <strong>grid-column</strong> nhưng thay vì là các đường thẳng ở cột thì <strong>grid-row</strong> sẽ là nhưng đường hẳng ở hàng. Và đương nhiên <strong>grid-row</strong> là các viết tắc cho <strong>grid-row-start</strong> và <strong>grid-row-end</strong>. Lấy lại hình ví dụ ở trên để ta thực hiện ví dụ với <strong>grid-row</strong>
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/t30d3o824j_image.png" alt="alt text">
-Ví dụ ta chọn item số 1 để thực hiện cách viết thông thường với <strong>grid-row-start</strong> và <strong>grid-row-end</strong>:</p>
-<pre><code>.grid-container &gt; div:nth-child(1){
+        <h4>grid-row</h4>
+        <p>
+          Ngược lại với <strong>grid-column</strong> thì chúng ta có
+          <strong>grid-row</strong>, cách thức hoạt động của
+          <strong>grid-row</strong> thì cũng giống
+          <strong>grid-column</strong> nhưng thay vì là các đường thẳng ở cột
+          thì <strong>grid-row</strong> sẽ là nhưng đường hẳng ở hàng. Và đương
+          nhiên <strong>grid-row</strong> là các viết tắc cho
+          <strong>grid-row-start</strong> và <strong>grid-row-end</strong>. Lấy
+          lại hình ví dụ ở trên để ta thực hiện ví dụ với
+          <strong>grid-row</strong>
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/t30d3o824j_image.png"
+            alt="alt text"
+          />
+          Ví dụ ta chọn item số 1 để thực hiện cách viết thông thường với
+          <strong>grid-row-start</strong> và <strong>grid-row-end</strong>:
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(1){
 	grid-row-start:1;
     grid-row-end:4;
 }
 </code></pre>
-<p>Ta sẽ được:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/3qvfu2oz98_image.png" alt="alt text">
-Sử dụng <strong>grid-row</strong> lên item 8 xem:</p>
-<pre><code>.grid-container &gt; div:nth-child(8){
+        <p>
+          Ta sẽ được:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/3qvfu2oz98_image.png"
+            alt="alt text"
+          />
+          Sử dụng <strong>grid-row</strong> lên item 8 xem:
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(8){
 	grid-row:3 / 5;
 }
 </code></pre>
-<p>Kết quả:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/k5uws8vu39_image.png" alt="alt text">
-Cuối cùng là dử dụng <code>span</code>:</p>
-<pre><code>  .grid-container &gt; div:nth-child(2){
+        <p>
+          Kết quả:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/k5uws8vu39_image.png"
+            alt="alt text"
+          />
+          Cuối cùng là dử dụng <code>span</code>:
+        </p>
+        <pre><code>  .grid-container &gt; div:nth-child(2){
       grid-row:1 / span 2;
   }
 </code></pre>
-<p>Kết quả:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7dty4h0dv_image.png" alt="alt text"></p>
-<h3>justify-self</h3>
-<p>Ở bài trước chúng ta đã tìm hiểu về <strong>justify-items</strong> là có tác dụng căn chỉnh các items bên trong nào là về đầu trục, cuối trục, ra giữa hay kéo giãn. Thì với <strong>justify-self</strong>, nó tạo ra với tác dụng là làm trái lệnh từ <strong>justify-items</strong> vậy. Ví dụ ta có hình như sau:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/h0yvyd8797_image.png" alt="alt text">
-và nếu ta sử dụng <code>justify-items:center</code> ở <strong>container</strong> thì tất cả các items sẽ được căn hết vào giữa như thế này:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/l3u72uv5m2_image.png" alt="alt text">
-Tuy nhiên ví dụ thằng số 7 muốn phá luật, nó muốn kéo giãn ra chứ không muốn bị co lại và căn ra giữa nữa, thì ta làm như sau:</p>
-<pre><code> .grid-container &gt; div:nth-child(7){
+        <p>
+          Kết quả:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7dty4h0dv_image.png"
+            alt="alt text"
+          />
+        </p>
+
+        <h3>justify-self</h3>
+        <p>
+          Ở bài trước chúng ta đã tìm hiểu về <strong>justify-items</strong> là
+          có tác dụng căn chỉnh các items bên trong nào là về đầu trục, cuối
+          trục, ra giữa hay kéo giãn. Thì với <strong>justify-self</strong>, nó
+          tạo ra với tác dụng là làm trái lệnh từ
+          <strong>justify-items</strong> vậy. Ví dụ ta có hình như sau:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/h0yvyd8797_image.png"
+            alt="alt text"
+          />
+          và nếu ta sử dụng <code>justify-items:center</code> ở
+          <strong>container</strong> thì tất cả các items sẽ được căn hết vào
+          giữa như thế này:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/l3u72uv5m2_image.png"
+            alt="alt text"
+          />
+          Tuy nhiên ví dụ thằng số 7 muốn phá luật, nó muốn kéo giãn ra chứ
+          không muốn bị co lại và căn ra giữa nữa, thì ta làm như sau:
+        </p>
+        <pre><code> .grid-container &gt; div:nth-child(7){
         justify-self:stretch;
     }
 </code></pre>
-<p>Boom:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/9e3ikqzzdh_image.png" alt="alt text">
-Thằng số 7 lách luật thành công. các giá trị của <strong>justify-self</strong> cũng tương tự như justify-items như: <strong>end, start, center</strong> và <strong>stretch</strong> nhưng nó chỉ tác dụng lên được item được chỉ định như cái tên của nó - <strong>self</strong> chứ không tác dụng lên toàn bộ item.</p>
-<h3>align-self</h3>
-<p>Nếu như <strong>justify-self</strong> là dùng để lách luật của <strong>justify-items</strong> thì <strong>align-items</strong> cũng có thằng lách luật của nó, đó chính là <strong>align-self</strong>. Cũng giống như <strong>justify-self</strong> thì <strong>align-self</strong> cũng <em>chỉ tác dụng lên được item được chỉ định như cái tên của nó - self chứ không tác dụng lên toàn bộ item.</em> Và nó cũng có các giá trị tương tự: <strong>end, start, center</strong> và <strong>stretch</strong>. Điều duy nhất khác với <strong>justify-self</strong> đó chính là <strong>justify-self</strong> tác dụng lên cột còn <strong>align-self</strong> sẽ tác dụng lên hàng.
-<strong>align-items</strong> ban hành luật <code>align-items:center</code>:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/vbrf1418a4_image.png" alt="alt text">
-và <strong>align-self</strong> lách luật với</p>
-<pre><code>.grid-container &gt; div:nth-child(6){
+        <p>
+          Boom:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/9e3ikqzzdh_image.png"
+            alt="alt text"
+          />
+          Thằng số 7 lách luật thành công. các giá trị của
+          <strong>justify-self</strong> cũng tương tự như justify-items như:
+          <strong>end, start, center</strong> và <strong>stretch</strong> nhưng
+          nó chỉ tác dụng lên được item được chỉ định như cái tên của nó -
+          <strong>self</strong> chứ không tác dụng lên toàn bộ item.
+        </p>
+        <h3>align-self</h3>
+        <p>
+          Nếu như <strong>justify-self</strong> là dùng để lách luật của
+          <strong>justify-items</strong> thì <strong>align-items</strong> cũng
+          có thằng lách luật của nó, đó chính là <strong>align-self</strong>.
+          Cũng giống như <strong>justify-self</strong> thì
+          <strong>align-self</strong> cũng
+          <em
+            >chỉ tác dụng lên được item được chỉ định như cái tên của nó - self
+            chứ không tác dụng lên toàn bộ item.</em
+          >
+          Và nó cũng có các giá trị tương tự:
+          <strong>end, start, center</strong> và <strong>stretch</strong>. Điều
+          duy nhất khác với <strong>justify-self</strong> đó chính là
+          <strong>justify-self</strong> tác dụng lên cột còn
+          <strong>align-self</strong> sẽ tác dụng lên hàng.
+          <strong>align-items</strong> ban hành luật
+          <code>align-items:center</code>:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/vbrf1418a4_image.png"
+            alt="alt text"
+          />
+          và <strong>align-self</strong> lách luật với
+        </p>
+        <pre><code>.grid-container &gt; div:nth-child(6){
         align-self:start;
     }
 </code></pre>
-<p>Kết quả:
-<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/i8actdncjz_image.png" alt="alt text"></p>
-<h2>link tham khảo</h2>
-<ul>
-<li><a href="https://www.w3schools.com/css/css_grid_item.asp">W3School</a></li>
-<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS-tricks</a></li>
-</ul>
-<p>HyHy 08-08-2018</p>
+        <p>
+          Kết quả:
+          <img
+            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/i8actdncjz_image.png"
+            alt="alt text"
+          />
+        </p>
 
+        <h2>link tham khảo</h2>
+        <ul>
+          <li>
+            <a href="https://www.w3schools.com/css/css_grid_item.asp"
+              >W3School</a
+            >
+          </li>
+          <li>
+            <a href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+              >CSS-tricks</a
+            >
+          </li>
+        </ul>
+        <p>HyHy 08-08-2018</p>
       </div>
 
       <div class="blog-tags-zone">
         <p class="tag-label">Tags:</p>
         <ul class="blog-tags">
-          
-      <li>
-        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/css.html">css</a>
-      </li>
-      
+          <li>
+            <a
+              class="tag"
+              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/css.html"
+              >css</a
+            >
+          </li>
         </ul>
       </div>
     </div>
@@ -183,4 +343,3 @@ và <strong>align-self</strong> lách luật với</p>
     }
   </script>
 </html>
-    

@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -17,8 +16,10 @@
 
   <body>
     <div class="blog-logo">
-      <a href="file:/D:/Hi-Blogs/index.html"
-        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      <a href="https://tortoise10h.github.io/Hi-Blogs/index.html"
+        ><img
+          src="../img/engine-img/shiba-with-glasses.jpg"
+          alt="Blog Logo Image"
       /></a>
     </div>
     <div class="container">
@@ -32,73 +33,184 @@
         </div>
       </div>
       <div class="main-content" id="mainContent">
-        <p>Class, một khái niệm mà có thể bạn đã gặp nhiều trong các ngôn ngữ như <code>Java</code>, <code>C#</code> hay cũng có thể là <code>PHP</code>, một thứ không thể thiếu trong lập trình OOP và được nhiều người sử dụng. Và dĩ nhiên, <code>Javascript</code> biết điều đó vì thế nên trong <code>Javascript</code> chúng ta cũng sẽ có class và hôm nay chúng ta sẽ tìm hiểu xem class trong <code>Javascript</code> là như thế nào.</p>
-<h2>Định nghĩa</h2>
-<p>Rõ ràng trước khi xài thì chúng ta cần phải biết nó là cái gì trước cái đã, nguyên bản định nghĩa trên <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"><strong>MDN</strong></a> <em>“Classes are in fact &quot; special function &quot; , and just as you can define function expressions and function declarations, the class syntax has two components: class expressions and class declarations.”</em></p>
-<p>Tạm dịch ra sẽ là  <em>“Class trong Javascript thật sự ra là một “hàm đặc biệt” và bạn có thể định nghĩa class giống như bạn định nghĩa function theo hai kiểu function expressions và function declarations . Theo đó khi định nghĩa class chúng ta cũng có hai cách đó là class expressions và class declarations”</em>.</p>
-<p>Như định nghĩa ở trên cũng cho ta thấy được rằng khái niệm cũng chả giúp chúng ta hiểu về class ở đây hơn là bao mà chúng ta nên tiến vào thực hành luôn đi, đó mới là cách dễ hiểu nhất ._.</p>
-<h2>Lưu ý</h2>
-<p>Nhưng trước khi đi vào thực hành thì chúng ta sẽ nhắc lại <strong>function expressions</strong> và <strong>function declarations</strong> là gì cho các bạn nào chưa biết là gì (còn biết rồi thì cũng phải đọc, tại mình lỡ ghi rồi ._.). Nếu chúng ta định nghĩa function như thế này trong Javascript thì nó sẽ được gọi là <strong>function delcarations</strong></p>
-<pre><code>function greeting () {
+        <p>
+          Class, một khái niệm mà có thể bạn đã gặp nhiều trong các ngôn ngữ như
+          <code>Java</code>, <code>C#</code> hay cũng có thể là
+          <code>PHP</code>, một thứ không thể thiếu trong lập trình OOP và được
+          nhiều người sử dụng. Và dĩ nhiên, <code>Javascript</code> biết điều đó
+          vì thế nên trong <code>Javascript</code> chúng ta cũng sẽ có class và
+          hôm nay chúng ta sẽ tìm hiểu xem class trong
+          <code>Javascript</code> là như thế nào.
+        </p>
+        <h2>Định nghĩa</h2>
+        <p>
+          Rõ ràng trước khi xài thì chúng ta cần phải biết nó là cái gì trước
+          cái đã, nguyên bản định nghĩa trên
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+            ><strong>MDN</strong></a
+          >
+          <em
+            >“Classes are in fact &quot; special function &quot; , and just as
+            you can define function expressions and function declarations, the
+            class syntax has two components: class expressions and class
+            declarations.”</em
+          >
+        </p>
+        <p>
+          Tạm dịch ra sẽ là
+          <em
+            >“Class trong Javascript thật sự ra là một “hàm đặc biệt” và bạn có
+            thể định nghĩa class giống như bạn định nghĩa function theo hai kiểu
+            function expressions và function declarations . Theo đó khi định
+            nghĩa class chúng ta cũng có hai cách đó là class expressions và
+            class declarations”</em
+          >.
+        </p>
+        <p>
+          Như định nghĩa ở trên cũng cho ta thấy được rằng khái niệm cũng chả
+          giúp chúng ta hiểu về class ở đây hơn là bao mà chúng ta nên tiến vào
+          thực hành luôn đi, đó mới là cách dễ hiểu nhất ._.
+        </p>
+        <h2>Lưu ý</h2>
+        <p>
+          Nhưng trước khi đi vào thực hành thì chúng ta sẽ nhắc lại
+          <strong>function expressions</strong> và
+          <strong>function declarations</strong> là gì cho các bạn nào chưa biết
+          là gì (còn biết rồi thì cũng phải đọc, tại mình lỡ ghi rồi ._.). Nếu
+          chúng ta định nghĩa function như thế này trong Javascript thì nó sẽ
+          được gọi là <strong>function delcarations</strong>
+        </p>
+        <pre><code>function greeting () {
     console.log('Hello world')
 }
 </code></pre>
-<p>Đây là cách định nghĩa function cơ bản mà có lẽ khi vừa học Javascript ở phần function chúng ta đã được biết đến. Vậy còn <strong>function expressions</strong> là như thế nào? Nó đây</p>
-<pre><code>const greeting = function () {
+        <p>
+          Đây là cách định nghĩa function cơ bản mà có lẽ khi vừa học Javascript
+          ở phần function chúng ta đã được biết đến. Vậy còn
+          <strong>function expressions</strong> là như thế nào? Nó đây
+        </p>
+        <pre><code>const greeting = function () {
     console.log('Hello world')
 }
 </code></pre>
-<p>Sau khi lên <strong>ES6</strong> thì chúng ta có thể viết “sang hơn” hơn như thế này (gọi là <strong>Arrow function</strong>)</p>
-<pre><code>const greeting = () =&gt; {
+        <p>
+          Sau khi lên <strong>ES6</strong> thì chúng ta có thể viết “sang hơn”
+          hơn như thế này (gọi là <strong>Arrow function</strong>)
+        </p>
+        <pre><code>const greeting = () =&gt; {
     console.log('Hello world')
 }
 </code></pre>
-<p>Thêm một lưu ý nữa, mình sẽ không dịch các tên tiếng anh ra tiếng việt để bảo toàn nghĩa nhé và hơn hết là mình cũng không biết dịch ra như nào cho hay :no_mouth:</p>
-<h2>Định nghĩa class như thế nào?</h2>
-<p>Cho một ví dụ gì đó gần gũi để có thể hình dung vấn đề nào, giả sử bây giờ chúng ta đang làm một ứng dụng quản lý dự án nhé, thì đương nhiên class đầu tiên chúng ta cần đó là  <strong>Project</strong> đúng không nào. Vậy làm sao khai báo class <strong>Project</strong> đó ra mà xài đây?</p>
-<h3>Class declarations</h3>
-<p>Đây là cách thứ nhất, tương tự như cách định nghĩa <strong>function declarations</strong> ở trên, ta có thể  định nghĩa class <strong>Project</strong> của  ta theo cách này để xài như sau:</p>
-<pre><code>class Project {
+        <p>
+          Thêm một lưu ý nữa, mình sẽ không dịch các tên tiếng anh ra tiếng việt
+          để bảo toàn nghĩa nhé và hơn hết là mình cũng không biết dịch ra như
+          nào cho hay :no_mouth:
+        </p>
+        <h2>Định nghĩa class như thế nào?</h2>
+        <p>
+          Cho một ví dụ gì đó gần gũi để có thể hình dung vấn đề nào, giả sử bây
+          giờ chúng ta đang làm một ứng dụng quản lý dự án nhé, thì đương nhiên
+          class đầu tiên chúng ta cần đó là <strong>Project</strong> đúng không
+          nào. Vậy làm sao khai báo class <strong>Project</strong> đó ra mà xài
+          đây?
+        </p>
+        <h3>Class declarations</h3>
+        <p>
+          Đây là cách thứ nhất, tương tự như cách định nghĩa
+          <strong>function declarations</strong> ở trên, ta có thể định nghĩa
+          class <strong>Project</strong> của ta theo cách này để xài như sau:
+        </p>
+        <pre><code>class Project {
     // Một tí code ở đây
 }
 </code></pre>
-<p>Đây cũng là cách hay được sử dụng nhất. Và khi ta muốn tạo một instance thì vẫn như các ngôn ngữ khác:</p>
-<pre><code>    const project = new Project()
+        <p>
+          Đây cũng là cách hay được sử dụng nhất. Và khi ta muốn tạo một
+          instance thì vẫn như các ngôn ngữ khác:
+        </p>
+        <pre><code>    const project = new Project()
 </code></pre>
-<p>Thế là đã có  class <strong>Project</strong> theo yêu cầu rồi nhé.</p>
-<h3>Class expressions</h3>
-<p>Tuy nhiên, có lẽ Javascript không thích nhàm chán như vậy nên đã bonus cho chúng ta thêm một cách nữa để khai báo class <strong>Project</strong> của chúng ta, <strong>class expressions</strong>:</p>
-<pre><code>const Project = class {
+        <p>Thế là đã có class <strong>Project</strong> theo yêu cầu rồi nhé.</p>
+        <h3>Class expressions</h3>
+        <p>
+          Tuy nhiên, có lẽ Javascript không thích nhàm chán như vậy nên đã bonus
+          cho chúng ta thêm một cách nữa để khai báo class
+          <strong>Project</strong> của chúng ta,
+          <strong>class expressions</strong>:
+        </p>
+        <pre><code>const Project = class {
     // Một tí code nữa cũng ở đây
 }
 </code></pre>
-<p>Nhưng, bên trong cách này lại có một kiểu ghi nữa (lắm trò nhiều chuyện ghê không), giả sử ta gán vào biến tên <strong>Project</strong> nhưng lại muốn tên của class phải là <strong>MyProject</strong> cơ, thế thì làm như sau:</p>
-<pre><code>const Project = class MyProject {
+        <p>
+          Nhưng, bên trong cách này lại có một kiểu ghi nữa (lắm trò nhiều
+          chuyện ghê không), giả sử ta gán vào biến tên
+          <strong>Project</strong> nhưng lại muốn tên của class phải là
+          <strong>MyProject</strong> cơ, thế thì làm như sau:
+        </p>
+        <pre><code>const Project = class MyProject {
     // Một tí code nữa cũng ở đây
 }
 </code></pre>
-<p>Có vẻ khác đúng không, khi định nghĩa class theo kiểu <strong>expressions</strong> như thế này, chúng ta <strong>có thể đặt tên cho class</strong> (ví dụ dưới) hoặc <strong>có thể không</strong> (ví dụ trên) đều được. Và chúng ta có thể xem tên class là tên gì  bằng cách <code>console.log(ClassName.name)</code>. Có một số lưu ý về tên của class:</p>
-<ul>
-<li>
-<p>Với <strong>class declarations</strong> thì tên của class cũng chính là cái tên sau chữ <strong>class</strong>. Với ví dụ của class declarations ở trên thì khi chúng ta <code>console.log(Project.name)</code> ra, ta sẽ được kết quả là <code>Project</code></p>
-</li>
-<li>
-<p>Với <strong>class expressions</strong> thì chúng ta sẽ có hai trường hợp nếu chúng ta không đặt tên thì tên của class sẽ được lấy với tên của biến mà ta đã gán vào. Với ví dụ đầu ở <strong>class expressions</strong> nếu ta <code>console.log(Project.name)</code> thì kết quả chúng ta thu được sẽ là <code>Project</code>. Tuy nhiên với ví dụ thứ hai thì vì ta đã đặt tên cho class của chúng ta (sau chữ <strong>class</strong>) cho nên <code>console.log(Project.name)</code> kết quả thu được sẽ là <code>MyProject</code></p>
-</li>
-</ul>
-<p>Khi tạo instance thì chúng ta sẽ <code>new</code> biến mà chúng ta gán class vào nhé (kể cả chúng ta có đặt tên cho class thì vẫn sử dụng biến chúng ta gán vào nha)</p>
-<pre><code>    const project = new Project()
+        <p>
+          Có vẻ khác đúng không, khi định nghĩa class theo kiểu
+          <strong>expressions</strong> như thế này, chúng ta
+          <strong>có thể đặt tên cho class</strong> (ví dụ dưới) hoặc
+          <strong>có thể không</strong> (ví dụ trên) đều được. Và chúng ta có
+          thể xem tên class là tên gì bằng cách
+          <code>console.log(ClassName.name)</code>. Có một số lưu ý về tên của
+          class:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Với <strong>class declarations</strong> thì tên của class cũng
+              chính là cái tên sau chữ <strong>class</strong>. Với ví dụ của
+              class declarations ở trên thì khi chúng ta
+              <code>console.log(Project.name)</code> ra, ta sẽ được kết quả là
+              <code>Project</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              Với <strong>class expressions</strong> thì chúng ta sẽ có hai
+              trường hợp nếu chúng ta không đặt tên thì tên của class sẽ được
+              lấy với tên của biến mà ta đã gán vào. Với ví dụ đầu ở
+              <strong>class expressions</strong> nếu ta
+              <code>console.log(Project.name)</code> thì kết quả chúng ta thu
+              được sẽ là <code>Project</code>. Tuy nhiên với ví dụ thứ hai thì
+              vì ta đã đặt tên cho class của chúng ta (sau chữ
+              <strong>class</strong>) cho nên
+              <code>console.log(Project.name)</code> kết quả thu được sẽ là
+              <code>MyProject</code>
+            </p>
+          </li>
+        </ul>
+        <p>
+          Khi tạo instance thì chúng ta sẽ <code>new</code> biến mà chúng ta gán
+          class vào nhé (kể cả chúng ta có đặt tên cho class thì vẫn sử dụng
+          biến chúng ta gán vào nha)
+        </p>
+        <pre><code>    const project = new Project()
 </code></pre>
-<h3>Lưu ý nhẹ</h3>
-<p>Đối với class thì sẽ không có khái niệm <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">hoisting</a> như function, cho nên chúng ta bắt buộc phải định nghĩa class của chúng ta trước rồi sau đó mới có thể sử dụng.</p>
-<pre><code>// 1. Nên
+        <h3>Lưu ý nhẹ</h3>
+        <p>
+          Đối với class thì sẽ không có khái niệm
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
+            >hoisting</a
+          >
+          như function, cho nên chúng ta bắt buộc phải định nghĩa class của
+          chúng ta trước rồi sau đó mới có thể sử dụng.
+        </p>
+        <pre><code>// 1. Nên
 class Project {
     // code ở đây
 }
 
 const project = new Project()
 </code></pre>
-<pre><code>// 2. Không nên
+        <pre><code>// 2. Không nên
 const project = new Project()
 
 class Project {
@@ -106,34 +218,60 @@ class Project {
 }
 
 </code></pre>
-<p>Nếu chúng ta làm theo cách 2 chúng ta sẽ ăn ngay vào mặt lỗi <code>ReferenceError</code> (<em>You have been warned <i class='em em-imp'></i></em>)</p>
-<h2>Bên trong class có gì?</h2>
-<h3>Constructor</h3>
-<p>Dĩ nhiên rồi, đây là class mà đúng không. Vậy tạo constructor cho class Project nào, nếu trong <code>Java</code> bạn sẽ làm như này đúng không</p>
-<pre><code>public class Project {
+        <p>
+          Nếu chúng ta làm theo cách 2 chúng ta sẽ ăn ngay vào mặt lỗi
+          <code>ReferenceError</code> (<em
+            >You have been warned <i class="em em-imp"></i></em
+          >)
+        </p>
+        <h2>Bên trong class có gì?</h2>
+        <h3>Constructor</h3>
+        <p>
+          Dĩ nhiên rồi, đây là class mà đúng không. Vậy tạo constructor cho
+          class Project nào, nếu trong <code>Java</code> bạn sẽ làm như này đúng
+          không
+        </p>
+        <pre><code>public class Project {
 	public Project () {
     	// rồi viết vô đây cái gì đó
    }
 }
 </code></pre>
-<p>Nhưng trong <code>Javascript</code> chúng ta sẽ được tặng hẳn 1 hàm riêng đó là <code>constructor()</code> luôn. Thế nên, class Project của chúng ta sẽ được viết như sau:</p>
-<pre><code>class Project {
+        <p>
+          Nhưng trong <code>Javascript</code> chúng ta sẽ được tặng hẳn 1 hàm
+          riêng đó là <code>constructor()</code> luôn. Thế nên, class Project
+          của chúng ta sẽ được viết như sau:
+        </p>
+        <pre><code>class Project {
 	constructor () {
    		// viết vô cái gì đó 
    }
 }
 </code></pre>
-<p>Nhớ là một class chỉ có 1 <code>constructor()</code> thôi nhé, viết hai cái <code>constructor()</code> là ăn lỗi <code>SyntaxError</code> đấy  (<em>You have been warned <i class='em em-imp'></i></em>). Constructor sẽ là phương thức được chạy đầu tiên khi ta khởi tạo một instance của class.</p>
-<p>Và nếu chúng ta muốn class Project của chúng ta có vài <strong>property</strong> ví dụ như <em>name, description</em> thì chúng ta sẽ bỏ nó vào <code>constructor</code> và các property của chúng ta sẽ được load bởi <code>constructor</code> trước tiên cho các phương thức khác sử dụng.</p>
-<pre><code>class Project {
+        <p>
+          Nhớ là một class chỉ có 1 <code>constructor()</code> thôi nhé, viết
+          hai cái <code>constructor()</code> là ăn lỗi
+          <code>SyntaxError</code> đấy (<em
+            >You have been warned <i class="em em-imp"></i></em
+          >). Constructor sẽ là phương thức được chạy đầu tiên khi ta khởi tạo
+          một instance của class.
+        </p>
+        <p>
+          Và nếu chúng ta muốn class Project của chúng ta có vài
+          <strong>property</strong> ví dụ như <em>name, description</em> thì
+          chúng ta sẽ bỏ nó vào <code>constructor</code> và các property của
+          chúng ta sẽ được load bởi <code>constructor</code> trước tiên cho các
+          phương thức khác sử dụng.
+        </p>
+        <pre><code>class Project {
 	constructor (name, description) {
    		this.name = name
   		this.description = description
    }
 }
 </code></pre>
-<p>Dĩ nhiên ta vẫn có thể viết như thế này</p>
-<pre><code>class Project {
+        <p>Dĩ nhiên ta vẫn có thể viết như thế này</p>
+        <pre><code>class Project {
 	// Khai báo các property trước tiên rồi vào constructor load data cho các property đó
 	name
     description
@@ -143,12 +281,16 @@ class Project {
    }
 }
 </code></pre>
-<p>Và khi gọi ra sẽ là</p>
-<pre><code>const project = new Project('Big Project', 'This is a sample project')
+        <p>Và khi gọi ra sẽ là</p>
+        <pre><code>const project = new Project('Big Project', 'This is a sample project')
 </code></pre>
-<h3>Các method của class</h3>
-<p>Rồi, bây giờ nếu chúng ta muốn class Project in ra màn hình console thông tin của project thì sẽ làm thế nào, viết một phương thức làm chuyện đó thôi:</p>
-<pre><code>class Project {
+        <h3>Các method của class</h3>
+        <p>
+          Rồi, bây giờ nếu chúng ta muốn class Project in ra màn hình console
+          thông tin của project thì sẽ làm thế nào, viết một phương thức làm
+          chuyện đó thôi:
+        </p>
+        <pre><code>class Project {
 	constructor (name, description) {
    		this.name = name
   		this.description = description
@@ -162,15 +304,27 @@ class Project {
    	}
 }
 </code></pre>
-<p>Và xài thôi</p>
-<pre><code>const project = new Project('Big Project', 'This is a sample project')
+        <p>Và xài thôi</p>
+        <pre><code>const project = new Project('Big Project', 'This is a sample project')
 project.printInfo()
 // kết quả sẽ là: project name Big Project has description This is a sample project
 </code></pre>
-<p>Thêm một lưu ý nhỏ rằng, nếu đã ở bên trong class thì code của chúng ta sẽ ở trong <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">strict mode</a>, cho nên chúng ta cần viết code “đàng hoàn”, không có sử dụng biến trước rồi khai báo sau nha <i class='em em-laughing'></i></p>
-<h3>Getter &amp; Setter</h3>
-<p>Quen thuộc đúng không nào, ở đây chúng ta sẽ sử dụng hai từ khóa đó là <code>get</code> và <code>set</code>, áp dụng thử vào class Project của chúng ta xem:</p>
-<pre><code>class Project {
+        <p>
+          Thêm một lưu ý nhỏ rằng, nếu đã ở bên trong class thì code của chúng
+          ta sẽ ở trong
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode"
+            >strict mode</a
+          >, cho nên chúng ta cần viết code “đàng hoàn”, không có sử dụng biến
+          trước rồi khai báo sau nha <i class="em em-laughing"></i>
+        </p>
+        <h3>Getter &amp; Setter</h3>
+        <p>
+          Quen thuộc đúng không nào, ở đây chúng ta sẽ sử dụng hai từ khóa đó là
+          <code>get</code> và <code>set</code>, áp dụng thử vào class Project
+          của chúng ta xem:
+        </p>
+        <pre><code>class Project {
 	constructor (name, description) {
    		this.name = name
   		this.description = description
@@ -190,19 +344,45 @@ project.printInfo()
   }
 }
 </code></pre>
-<p>Và nếu chúng ta đã định nghĩa các hàm get set cho class Project của chúng ta, thì chúg ta có thể làm như sau:</p>
-<pre><code>console.log(project.projectName)
+        <p>
+          Và nếu chúng ta đã định nghĩa các hàm get set cho class Project của
+          chúng ta, thì chúg ta có thể làm như sau:
+        </p>
+        <pre><code>console.log(project.projectName)
 console.log(project.projectDescription)
 </code></pre>
-<p>Chúng ta sẽ truy cập vào hàm getter với cách ghi như trên, bây giờ hàm getter của chúng ta <strong>không được xem là một function nữa</strong> cho nên nếu ta viết theo kiểu <code>console.log(project.projectName())</code> <strong>là sai</strong>.</p>
-<pre><code>project.projectName = 'Another name of project'
+        <p>
+          Chúng ta sẽ truy cập vào hàm getter với cách ghi như trên, bây giờ hàm
+          getter của chúng ta
+          <strong>không được xem là một function nữa</strong> cho nên nếu ta
+          viết theo kiểu <code>console.log(project.projectName())</code>
+          <strong>là sai</strong>.
+        </p>
+        <pre><code>project.projectName = 'Another name of project'
 project.projectDescription = 'This is a another long description for project'
 </code></pre>
-<p>Đối với hàm setter thì chỉ cần viết như phía trên thì nó sẽ tự động vào hàm setter của chúng ta đã define ở trên. Chúng ta cũng <strong>không thể viết</strong> là <code>project.projectName('Another name of project')</code> được  vì hàm setter này <strong>cũng không được coi là một function</strong>.</p>
-<p>Và một lưu ý nhỏ nữa là tên hàm setter và getter của chúng ta phải <strong>giống nhau</strong> nếu không chúng ta sẽ bị <strong>warning</strong> ở hàm setter là Property ‘<em>setterMethodName’ implicitly has type ‘any’, because its set accessor lacks a parameter type annotation</em>’ (warning này khi mình code trên text editor là VSCode)</p>
-<h3>Static method</h3>
-<p>Như bao ngôn ngữ xịn xò khác, <code>Javascript</code> cũng có static method <i class='em em-sunglasses'></i>. Cách sử dụng rất đơn giản, khai báo nè:</p>
-<pre><code>class Project {
+        <p>
+          Đối với hàm setter thì chỉ cần viết như phía trên thì nó sẽ tự động
+          vào hàm setter của chúng ta đã define ở trên. Chúng ta cũng
+          <strong>không thể viết</strong> là
+          <code>project.projectName('Another name of project')</code> được vì
+          hàm setter này <strong>cũng không được coi là một function</strong>.
+        </p>
+        <p>
+          Và một lưu ý nhỏ nữa là tên hàm setter và getter của chúng ta phải
+          <strong>giống nhau</strong> nếu không chúng ta sẽ bị
+          <strong>warning</strong> ở hàm setter là Property ‘<em
+            >setterMethodName’ implicitly has type ‘any’, because its set
+            accessor lacks a parameter type annotation</em
+          >’ (warning này khi mình code trên text editor là VSCode)
+        </p>
+        <h3>Static method</h3>
+        <p>
+          Như bao ngôn ngữ xịn xò khác, <code>Javascript</code> cũng có static
+          method <i class="em em-sunglasses"></i>. Cách sử dụng rất đơn giản,
+          khai báo nè:
+        </p>
+        <pre><code>class Project {
 	.....
 	// một mớ code ở trên
     static sayHello () {
@@ -211,8 +391,15 @@ project.projectDescription = 'This is a another long description for project'
     
 }
 </code></pre>
-<p>Và khi gọi <strong>static method</strong> thì chúng ta phải dùng <strong>class</strong> để gọi chứ <strong>không dùng instance</strong> nếu không là ăn lỗi <code>TypeError</code> đấy (<em>You have been warned <i class='em em-imp'></i></em>).</p>
-<pre><code>// project là instance còn Project là Class
+        <p>
+          Và khi gọi <strong>static method</strong> thì chúng ta phải dùng
+          <strong>class</strong> để gọi chứ
+          <strong>không dùng instance</strong> nếu không là ăn lỗi
+          <code>TypeError</code> đấy (<em
+            >You have been warned <i class="em em-imp"></i></em
+          >).
+        </p>
+        <pre><code>// project là instance còn Project là Class
 
 // 1. Đúng
 Project.sayHello()
@@ -220,18 +407,36 @@ Project.sayHello()
 // 2. Sai
 project.sayHello()
 </code></pre>
-<h2>Kế thừa với <code>extends</code></h2>
-<p><strong>Inheritance</strong> là một nguyên lý quan trọng của OOP đúng không nào, vậy nên đương nhiên <code>javascript</code> sẽ có hỗ trợ nó. Giả sử bây giờ chúng ta lại muốn có một class nữa là <strong>SecretProject</strong>, class này sẽ kế thừa class <strong>Project</strong>  của chúng ta và có thêm một field nữa là <em>password</em>, thì sẽ viết như nào? Nó đây:</p>
-<pre><code>class SecretProject extends Project {
+        <h2>Kế thừa với <code>extends</code></h2>
+        <p>
+          <strong>Inheritance</strong> là một nguyên lý quan trọng của OOP đúng
+          không nào, vậy nên đương nhiên <code>javascript</code> sẽ có hỗ trợ
+          nó. Giả sử bây giờ chúng ta lại muốn có một class nữa là
+          <strong>SecretProject</strong>, class này sẽ kế thừa class
+          <strong>Project</strong> của chúng ta và có thêm một field nữa là
+          <em>password</em>, thì sẽ viết như nào? Nó đây:
+        </p>
+        <pre><code>class SecretProject extends Project {
 	constructor (name, description, password) {
 		super(name, description)
 		this.password = password
 	}
 }
 </code></pre>
-<p>Và chúng ta đã có một class mới kế thừa tất cả class <strong>Project</strong> cũ. Tuy nhiên chúng ta cần lưu ý rằng nếu trong class con của chúng ta có <code>constructor</code> thì <strong>phải gọi hàm</strong> <code>super()</code> trước khi chúng ta sử dụng từ khóa <code>this</code> (đó là điều bắt buộc, nếu bạn không làm thì compiler nó cũng bắt bạn làm thôi <i class='em em-sunglasses'></i>).</p>
-<p>Ngoài ra chúng ta cũng có thể làm như sau (extends từ một function base-class)</p>
-<pre><code>function WeirdProject (name, description) {
+        <p>
+          Và chúng ta đã có một class mới kế thừa tất cả class
+          <strong>Project</strong> cũ. Tuy nhiên chúng ta cần lưu ý rằng nếu
+          trong class con của chúng ta có <code>constructor</code> thì
+          <strong>phải gọi hàm</strong> <code>super()</code> trước khi chúng ta
+          sử dụng từ khóa <code>this</code> (đó là điều bắt buộc, nếu bạn không
+          làm thì compiler nó cũng bắt bạn làm thôi
+          <i class="em em-sunglasses"></i>).
+        </p>
+        <p>
+          Ngoài ra chúng ta cũng có thể làm như sau (extends từ một function
+          base-class)
+        </p>
+        <pre><code>function WeirdProject (name, description) {
    this.name = name
    this.description = description
 }
@@ -244,9 +449,15 @@ class SecretProject extends WeirdProject {
    }
 }
 </code></pre>
-<p>Nhưng thôi, đừng làm vậy ráng xài cách ở trên kia đi.</p>
-<p>Bây giờ chúng ta đã có các property và method của class cha rồi nhưng chúng ta lại muốn thay đổi phương thức <code>printInfo</code> cũ là sẽ in luôn thông tin của password ra cho chúng ta (cái này là làm demo thôi, đừng chửi mình vụ security nhé <i class='em em-laughing'></i>) thì chúng ta sẽ:</p>
-<pre><code>class SecretProject extends Project {
+        <p>Nhưng thôi, đừng làm vậy ráng xài cách ở trên kia đi.</p>
+        <p>
+          Bây giờ chúng ta đã có các property và method của class cha rồi nhưng
+          chúng ta lại muốn thay đổi phương thức <code>printInfo</code> cũ là sẽ
+          in luôn thông tin của password ra cho chúng ta (cái này là làm demo
+          thôi, đừng chửi mình vụ security nhé <i class="em em-laughing"></i>)
+          thì chúng ta sẽ:
+        </p>
+        <pre><code>class SecretProject extends Project {
 	....
 	// bỏ qua mớ code trên kia đi
 	printInfo () {
@@ -256,32 +467,65 @@ class SecretProject extends WeirdProject {
 	
 }
 </code></pre>
-<p>Chúng ta đã override lại được phương thức <code>printInfo</code> của class <strong>Project</strong> trong class <strong>SecretProject</strong>. Tuy nhiên chúng ta cần lưu ý là</p>
-<ul>
-<li>Bạn nên gọi phương thức ở lớp cha bằng cách <code>super.tênPhươngThức()</code> thay vì <code>this.tênPhươngThức()</code> khi ở trong class con.</li>
-<li>Khi bạn muốn override lại một phương thức ở lớp cha và <strong>muốn chạy lại phương thức đó bên trong phương thức mới của lớp con</strong> thì phải gọi phương thức ở lớp cha bằng <code>super</code> nếu gọi bằng <code>this</code> bạn sẽ dính loop vô hạn vì đó là gọi đệ quy (trong trường hợp bạn không set điều kiện dừng, nhưng ai lại có chủ đích set điều kiện dừng trong ngữ cảnh này đúng không =&gt; loop vô hạn <i class='em em-sunglasses'></i>)</li>
-</ul>
-<p>Ok đó là sương sương về class trong <code>Javascript</code> nhé, nếu bạn muốn tìm hiểu kĩ hơn thì</p>
-<ul>
-<li>Search google thêm</li>
-<li>Xem chi tiết ở link mà mình tham khảo tại <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">đây</a></li>
-</ul>
-<p>Hi, 20-12-2019</p>
-
+        <p>
+          Chúng ta đã override lại được phương thức <code>printInfo</code> của
+          class <strong>Project</strong> trong class
+          <strong>SecretProject</strong>. Tuy nhiên chúng ta cần lưu ý là
+        </p>
+        <ul>
+          <li>
+            Bạn nên gọi phương thức ở lớp cha bằng cách
+            <code>super.tênPhươngThức()</code> thay vì
+            <code>this.tênPhươngThức()</code> khi ở trong class con.
+          </li>
+          <li>
+            Khi bạn muốn override lại một phương thức ở lớp cha và
+            <strong
+              >muốn chạy lại phương thức đó bên trong phương thức mới của lớp
+              con</strong
+            >
+            thì phải gọi phương thức ở lớp cha bằng <code>super</code> nếu gọi
+            bằng <code>this</code> bạn sẽ dính loop vô hạn vì đó là gọi đệ quy
+            (trong trường hợp bạn không set điều kiện dừng, nhưng ai lại có chủ
+            đích set điều kiện dừng trong ngữ cảnh này đúng không =&gt; loop vô
+            hạn <i class="em em-sunglasses"></i>)
+          </li>
+        </ul>
+        <p>
+          Ok đó là sương sương về class trong <code>Javascript</code> nhé, nếu
+          bạn muốn tìm hiểu kĩ hơn thì
+        </p>
+        <ul>
+          <li>Search google thêm</li>
+          <li>
+            Xem chi tiết ở link mà mình tham khảo tại
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes"
+              >đây</a
+            >
+          </li>
+        </ul>
+        <p>Hi, 20-12-2019</p>
       </div>
 
       <div class="blog-tags-zone">
         <p class="tag-label">Tags:</p>
         <ul class="blog-tags">
-          
-      <li>
-        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/coding.html">coding</a>
-      </li>
-      
-      <li>
-        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/javascript.html">javascript</a>
-      </li>
-      
+          <li>
+            <a
+              class="tag"
+              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/coding.html"
+              >coding</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="tag"
+              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/javascript.html"
+              >javascript</a
+            >
+          </li>
         </ul>
       </div>
     </div>
@@ -320,4 +564,3 @@ class SecretProject extends WeirdProject {
     }
   </script>
 </html>
-    
