@@ -1,0 +1,150 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Tìm hiểu về CSS 2D transforms | Hi's blog</title>
+    <link
+      rel="icon"
+      type="image/icon"
+      href="../img/engine-img/shiba-with-glasses.jpg"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/emoji-dist.css" />
+  </head>
+
+  <body>
+    <div class="blog-logo">
+      <a href="file:/D:/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">Tìm hiểu về CSS 2D transforms</h1>
+        <div class="date-and-min-read">
+          <p class="blog-date">
+            &#x1F550; Monday, August 20th 2018
+          </p>
+          <p class="min-read" id="readingTime"></p>
+        </div>
+      </div>
+      <div class="main-content" id="mainContent">
+        <h2>Chút lý thuyết về CSS 2D transforms</h2>
+<p><strong>CSS 2D transforms</strong>, tác dụng thì như cái tên của nó - “biến hình” cho các element theo chiều 2D (còn 3D nửa, 4D chưa biết <i class='em em-laughing'></i>). Cái <strong>CSS 2D transform</strong> này cho phép chúng ta tác động lên element để có thể thay đổi vị trị, hình dáng hay xoay nó mòng mòng :v. Để làm được mấy điều đó chúng ta có một số methods như sau:</p>
+<ul>
+<li><code>translate(x,y)</code>: có tác dụng là dịch chuyển vị trí của element sang trái, phải, rồi lên trên, xuống dưới với <code>x</code> là dịch theo chiều ngang còn <code>y</code> là dịch theo chiều dọc (như trục tọa độ Oxy ấy :v) đơn vị là px, em,…</li>
+<li><code>rotate(?deg)</code>: công dụng của cái này là giúp ta xoay element với góc độ tự chọn <code>?deg</code> (deg là kí kiệu của độ: <strong>degrees</strong>) và có thể xoay theo chiều kim đồng hồ (độ là số dương) hoặc ngược kim đồng hồ (độ là số âm) tùy thích.</li>
+<li><code>scale(x,y)</code>: công dụng của  nó vô cùng đơn giản là <strong>zoom</strong>, nó dùng để zoom element to lên hoặc nhỏ lại tùy chỉnh với <code>x</code> là zoom chiều ngang và <code>y</code> là zoom chiều dọc, ở đây không cần ghi đơn vị, nó tính theo tỉ lệ so với element ví dụ 1 là giữ nguyên 2 là tăng lên gấp đôi, vân vân mây mây</li>
+<li><code>skew(x,y</code>: công dụng của nó là là làm <strong>nghiêng</strong>  cho element (lát xuống ví dụ để dễ hiểu hơn). Thực ra là có chia ra <code>skewX()</code> và <code>skewY</code> nhưng chỉ cần ghi <code>skew</code> là có thể chỉnh được cả X và  Y rồi (vậy tiện hơn).</li>
+</ul>
+<p>Thực ra còn một cái <code>matrix</code> tuy nhiên nó cũng chỉ là tổng hợp giữa <code>scale</code> <code>skew``translate</code> và nhìn hơi rối nên mình không nhắc (tại mình ghét nó đấy, đã ghét tuổi gì vào <i class='em em-angry'></i>)</p>
+<h3>Translate</h3>
+<p>Ở đây chúng ta có một thẻ <code>div</code> như sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/f0ijnh4up7_image.png" alt="alt text">
+Và đây là kết quả của nó:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/9wh6fd06uf_image.png" alt="alt text">
+Chúng ta có một hình chữ nhật nằm ở góc trái bên trên của ảnh, bây giờ chúng ta muốn thay đổi vị trí của nó đi, ta làm như sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/bq9kjuw5jm_image.png" alt="alt text">
+Và vị trí của nó đã bị di chuyển, cụ thể là sang phải 100px sau đó thụt xuống dưới 200px
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5rofue04cp_image.png" alt="alt text">
+Đó là cách hoạt độn của <code>translate</code></p>
+<h3>Rotate</h3>
+<p>Tiếp tục sử dụng hình chữ nhật ở trên nhưng ta bỏ đi phần <code>translate</code> và thay vào đó là <code>rotate</code> để xem nó hoạt động như thế nào :3.
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/oecies30o7_image.png" alt="alt text">
+Ở đoạn CSS trên ta chọn <code>transform:rotate(40deg)</code> tức là ta sẽ xoay hình chữ nhật lúc nãy về phía bên phải 40 độ (nhắc lại số dương là cùng chiều kim đồng hồ còn số âm là ngược lại). Và kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/vnhue64lv8_image.png" alt="alt text"></p>
+<h3>Scale</h3>
+<p>Tiếp đến là <code>scale</code> chúng ta sẽ cho một hình chữ nhật nhỏ  và dùng scale để tăng tỉ lệ nó lên
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5iadgp2ssk_image.png" alt="alt text">
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/bd7qntbk46_image.png" alt="alt text">
+Chúng ta sẽ dùng <code>scale</code> và tăng tỉ lệ của hình chữ nhật lên gấp đôi:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/uoe9jtp0ap_image.png" alt="alt text">
+Và kết quả là nó đã to lên gấp đôi (to lên ở đây bao gồm tất cả những thứ trong thẻ <code>div</code>của chúng ta từ font chữ, border cho đến kích thước: chiều cao, chiều rộng)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/glm884srgg_image.png" alt="alt text"></p>
+<h3>Skew</h3>
+<p>Để giải thích cho cái khái niệm về <code>skew</code> mà mình nêu ở trên, chúng ta có thể quan sát ví dụ để dễ hiểu hơn. Chúng ta sẽ đi vào <code>skewX</code> và <code>skewY</code> sau đó thì đi đến <code>skew</code> cho dễ hiểu, Ví dụ ta vẫn lấy lại cái hình chữ nhật ở phần <code>translate</code> (mình lười trích lại code <i class='em em-laughing'></i>)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/1vdo1hh8ao_image.png" alt="alt text">
+Sau đó nếu ta áp dụng <code>skewX</code> vào:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/h1jkt3weuv_image.png" alt="alt text">
+Thì ta sẽ được như này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/1jlrxvp9ez_image.png" alt="alt text">
+Đây là cái <strong>nghiêng</strong> mà mình muốn nói. Dĩ nhiên chúng ta hoàn toàn có thể <strong>nghiêng</strong> theo hướng ngược lại bằng cách đổi độ thành số âm.
+Tiếp theo, nếu ta dùng <code>skewY</code> thì sao?
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/8ao7u8etbj_image.png" alt="alt text">
+Thì hình chữ nhật ban đầu sẽ thành ra như này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/fs78vql8l4_image.png" alt="alt text">
+Nó nghiêng lên trên <i class='em em-laughing'></i>
+Và cuối cùng là <code>skew</code> (lưu ý trong <code>skew</code> sẽ bao gồm cả <code>skewX</code> và <code>skewY</code> số đầu là x số sau là y và nếu chúng ta chỉ ghi 1 số trong <code>skew</code> thì nó sẽ tự động hiểu số đó là x còn thằng y sẽ bị cho là 0). Chúng ta hãy thử ví dụ này lên hình chữ nhật ban đầu
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/h0ckojn1t7_image.png" alt="alt text">
+Và đây là kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/jk3nudkn4j_image.png" alt="alt text">
+Nó nghiêng bốn bề <i class='em em-laughing'></i></p>
+<p>Thêm nửa là chúng ta có thể áp dụng nhiều cái transform (như <code>translate</code>, <code>skew</code>,…) vào chung với nhau bằng cách đặt chúng cách nhau 1 khoảng trắng . Chẳng hạn như dưới đây là mình gắn cả <code>rotate</code> <code>skew</code> và <code>scale</code> vào hình chữ nhật với chữ như sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5qv8h2dnc_image.png" alt="alt text">
+áp dụng mutiple transform vào:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/f9ymb2bsjx_image.png" alt="alt text">
+Ta sẽ được một hình trông vui hơn <i class='em em-laughing'></i>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/4opd12iife_image.png" alt="alt text"></p>
+<p>thoạt nhìn thì thấy mấy cái này có vẻ không vui, tuy nhiên nó cũng có thể dùng làm một số hiệu ứng khá là hay, mình sẽ viết ở bài sau, tới đây lười quá <i class='em em-laughing'></i></p>
+<h2>Link tham khảo</h2>
+<p>Nơi mình tham khảo:</p>
+<ul>
+<li>W3school <a href="https://www.w3schools.com/css/css3_2dtransforms.asp">Ở đây</a></li>
+</ul>
+
+      </div>
+
+      <div class="blog-tags-zone">
+        <p class="tag-label">Tags:</p>
+        <ul class="blog-tags">
+          
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/coding.html">coding</a>
+      </li>
+      
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/css.html">css</a>
+      </li>
+      
+        </ul>
+      </div>
+    </div>
+    <div class="blog-footer">
+      <p>You are free to use this content but please ciate</p>
+      <p style="text-align: center">
+        Created with
+        <strong
+          ><a
+            href="https://github.com/tortoise10h/Hi-Blog-Engine"
+            target="_blank"
+            >Hi-blog-engine</a
+          ></strong
+        >
+      </p>
+    </div>
+  </body>
+
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script>
+    window.onload = () => {
+      const blogContent = document.getElementById('mainContent').innerText
+      const wordsPerMinute = 200 // Average case.
+      let minRead
+      let numOfWords = blogContent.split(' ').length // Split by words
+      if (numOfWords > 0) {
+        let value = Math.ceil(numOfWords / wordsPerMinute)
+        minRead = value
+      }
+      document.getElementById(
+        'readingTime'
+      ).innerHTML = `Dài &#128195; ${numOfWords} từ ~ &#128214; ${minRead} phút đọc`
+    }
+  </script>
+</html>
+    

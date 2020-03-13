@@ -1,0 +1,189 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>CSS Flex-box: Parent (Phần 1) | Hi's blog</title>
+    <link
+      rel="icon"
+      type="image/icon"
+      href="../img/engine-img/shiba-with-glasses.jpg"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/emoji-dist.css" />
+  </head>
+
+  <body>
+    <div class="blog-logo">
+      <a href="file:/D:/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">CSS Flex-box: Parent (Phần 1)</h1>
+        <div class="date-and-min-read">
+          <p class="blog-date">
+            &#x1F550; Sunday, September 2nd 2018
+          </p>
+          <p class="min-read" id="readingTime"></p>
+        </div>
+      </div>
+      <div class="main-content" id="mainContent">
+        <h2>Sơ lược về CSS Flex-box</h2>
+<p>Trước Flex-box layout module thì chúng ta có các kiểu layout như: <strong>Block</strong> dành cho các phần, đoạn trong một trang web, <strong>inline</strong> dành cho phần text,… Nếu trước kia chúng ta muốn tạo được một trang web với layout cơ bản như là có phần <strong>branding</strong>, rồi <strong>thanh menu</strong>, tiếp đến là phần <strong>content</strong> cuối cùng là phần <strong>footer</strong> thì chúng ta cần phải làm rất nhiều thứ: nào là float qua trái qua phải hay chỉnh position,bla bla bla,… thì giờ với flex-box chúng ta sẽ dễ dàng làm hơn không cần phải cực khổ như trước nữa (tuy nhiên vẫn cần tí nổ lực <i class='em em-laughing'></i>).</p>
+<p>Đây là các phiên bản browser khác nhau hổ trợ cho flex-box: (tham khảo để khỏi hoảng hốt khi code mình lại sai trên máy người ta chỉ vì do người ta xài phiên bản cũ không hỗ trợ <i class='em em-laughing'></i>)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/m96hqfnefh_image.png" alt="alt text"></p>
+<p>Để bắt đầu sử dụng flex-box thì chúng ta cần phải xây dựng được cấu trúc của nó, dưới đây là ví dụ:</p>
+<pre><code>.flex-container{
+	display:flex;
+    background-color:#1abc9c;
+}
+.child{
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 20px;
+}
+</code></pre>
+<p>Phần code ở trên là một ví dụ về một cấu trúc khi ta dùng flex-box (để dễ hình dung) , nó sẽ chia ra làm 2 phần đó là <strong>parent</strong> (class <code>flex-container</code>) và <strong>items</strong> (class <code>child</code>) với phần <strong>parent</strong> chúng ta cần phải có <code>display:flex</code> để thể hiện là chúng ta đang sử dụng flex-box layout module. Và tiếp theo là phần <strong>items</strong> sẽ được viết bên trong parent để tạo ra các ô tùy ý. Ví dụ ta có một đoạn code <code>html</code> tiếp nối theo đoạn CSS ví dụ ở trên:</p>
+<pre><code>&lt;div class=&quot;flex-container&quot;&gt;
+	&lt;div class=&quot;child&quot;&gt;1&lt;/div&gt;
+	&lt;div class=&quot;child&quot;&gt;2&lt;/div&gt;
+	&lt;div class=&quot;child&quot;&gt;3&lt;/div&gt;
+	&lt;div class=&quot;child&quot;&gt;4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Thì đây là kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ay6yxpvbya_image.png" alt="alt text">
+Quá dễ dàng  để tạo ra layout mà không cần phải float hay gì gì cả. Ở hình trên với phần <strong>parent</strong> chúng ta sẽ thấy đó là phần có background màu xanh đã được ta đặt ở trên cùng với <code>display:flex</code>để các <strong>items</strong> bên trong hiển thị thành từng ô riêng.</p>
+<p>Nói nãy giờ thì ta dễ dàng thấy cấu trúc của chúng ta sẽ xoay quay 2 thằng đó là <strong>parent</strong> và <strong>items</strong>, chính vì vậy nên chúng ta sẽ đi đến với các property dành riêng cho từng thằng và dùng các property đó để tạo nên một layout website dễ dàng hơn. Trong phần này chúng ta sẽ nói đến các property của phần <strong>parent</strong></p>
+<h2>Các property parent</h2>
+<h3>flex-direction</h3>
+<p><strong>flex-direction</strong> property dùng để thiết lập trục chính của <strong>parent</strong> (ngang hay dọc) và đặt các <strong>items</strong> bên trong nằm theo chính hướng đó . <strong>flex-direction</strong> có 4 giá trị đó là:</p>
+<ul>
+<li><strong>row</strong>: đây là kiểu mặc định, các <strong>items</strong> sẽ nằm theo chiều ngang từ trái sang phải giống như text.</li>
+<li><strong>row-reverse</strong>: cũng là sắp xếp các <strong>items</strong> bên trong nằm theo chiều chiều ngang, tuy nhiên nhiên là thứ tự từ phải sang trái và vị trí của nó cũng sẽ bị đảo lại. Chúng ta lấy lại ví dụ hình ở trên và cho thêm vào <code>flex-direction:row-reverse</code> thì sẽ được như sau: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/fvz862w17e_image.png" alt="alt text"></li>
+<li><strong>column</strong>: trái ngược với <strong>row</strong> thì chính là <strong>column</strong>, các <strong>items</strong> bên trong bây giờ sẽ theo chiều dọc thứ tự từ trên xuống dưới, đây là ví dụ khi sử dụng <code>flex-direction:column</code>: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/zb11cbd5kx_image.png" alt="alt text"> (<em>hình trên đã có thêm phần chiều rộng của các items là 50px để cho nó không bị trải dài ra</em>)</li>
+<li><strong>row-reverse</strong>: cũng giống như <strong>row</strong> là nằm theo chiều dọc tuy nhiên các items sẽ đảo ngược vị trí lại với nhau (tương tự cách <strong>row-reverse</strong> làm với <strong>row</strong>).</li>
+</ul>
+<p>Hình minh họa cho 4 giá trị của <strong>flex-direction</strong> <i class='em em-laughing'></i>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/grznx52dq5_image.png" alt="alt text"></p>
+<h3>flex-wrap</h3>
+<p>Để hiểu về <strong>flex-wrap</strong>, chúng ta hãy xem ví dụ dưới đây: (thu nhỏ browser lại để thấy sự khác biệt giữa hai ví dụ)
+Ví dụ 1: có sử dụng <code>flex-wrap:wrap</code></p>
+<p data-height="265" data-theme-id="dark" data-slug-hash="WKXQVP" data-default-tab="html,result" data-user="tortoise10h" data-pen-title="flex-wrap example" class="codepen"> <a href="https://codepen.io/tortoise10h/pen/WKXQVP/">flex-wrap example</a> 
+Ví dụ 2: sử dụng `flex-wrap:nowrap` hay đó chính là default
+<p data-height="265" data-theme-id="dark" data-slug-hash="djZGyz" data-default-tab="html,result" data-user="tortoise10h" data-pen-title="flex-wrap example2" class="codepen"> <a href="https://codepen.io/tortoise10h/pen/djZGyz/">flex-wrap example2</a>
+<p>Sau khi xem 2 ví dụ ở trên chúng ta đã có thể hiểu được công dụng của <strong>flex-wrap</strong> là như thế nào. Khi sử dụng <strong>flex-wrap</strong> chúng ta sẽ quyết định xem các <strong>items</strong> bên trong <strong>parent</strong> là sẽ nằm ở trên 1 đường thằng hay là nhiều đường thẳng, nếu là nằm trên nhiều đường thằng thì nó sẽ hình thành nên một trục chéo để xác định khi ta resize lại browser (nhỏ hơn) thì các items sẽ nằm chồng lên nhau như thế nào.  <strong>flex-wrap</strong> có 3 giá trị đó là:</p>
+<ul>
+<li><strong>wrap</strong>: khi sử dụng giá trị này, như chúng ta thấy ở trên khi resize browser nhỏ lại các <strong>items</strong> bên trong sẽ rơi xuống dòng và chồng lên nhau thành nhiều cột tùy thuộc vào độ nhỏ của browser mà ta đã resize.</li>
+<li><strong>nowrap</strong>: giá trị này là default, khi sử dụng nó hoặc không dùng đến flex-wrap, nếu chúng ta resize browser nhỏ lại thì các items bên trong sẽ bị che khuất từ từ.</li>
+<li><strong>wrap-reverse</strong>: khi ta dùng giá trị này, cũng như <strong>wrap</strong> nếu resize browser nhỏ lại các <strong>items</strong> sẽ chồng lên nhau, tuy nhiên vị trí của các <strong>items</strong> xếp sau sẽ được đưa lên đầu nếu ta sử dụng <strong>wrap-reverse</strong>.</li>
+</ul>
+<h3>flex-flow</h3>
+<p>Property này đơn giản là viết tăc, gom cả <strong>flex-direction</strong> và <strong>flex-wrap</strong> lại với nhau. Nếu bình thường ta viết như thế này:</p>
+<pre><code>.flex-container{
+	display:flex;
+    flex-direction:row;
+  	flex-wrap:wrap;
+}
+</code></pre>
+<p>Thì dùng <strong>flex-flow</strong> để viết tắc lại sẽ ngắn hơn:</p>
+<pre><code>.flex-container{
+    display:flex;
+    flex-flow:row wrap;
+}
+</code></pre>
+<p>Nếu ta bỏ trống cái nào thì cái đó coi như sẽ ở giá trị default.</p>
+<h3>justify-content</h3>
+<p><strong>justify-content</strong> property dùng để căn chỉnh các <strong>items</strong> bên trong <strong>parent</strong> theo chiều trục chính của nó (trục chúng ta đã đặc ở <strong>flex-direction</strong> là ngang hoặc dọc). <strong>justify-content</strong> có các giá trị như sau:</p>
+<ul>
+<li><strong>center</strong>: giá trị này dùng để căn chỉnh các <strong>items</strong> bên trong sẽ nằm ở giữa container <strong>parent</strong>. Ví dụ ta dùng <code>justify-content:center</code> với trục hàng ngang thì sẽ như thế này: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7i9juitgxl_image.png" alt="alt text"> (<em>các items đã nằm ở giữa</em>) và nếu dùng cho trục dọc thì sẽ như này: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/2n9ld9cy7l_image.png" alt="alt text"></li>
+<li><strong>flex-start</strong>:  <strong>flex-start</strong> là giá trị default, dùng để căn các <strong>items</strong> nằm về phía đầu trục, nếu là trục nganng thì là bên trái và trục dọc thì là ở trên</li>
+<li><strong>flex-end</strong>: ngược lại với <strong>flex-start</strong> thì <strong>flex-end</strong> dùng để căn các <strong>items</strong> nằm về phía cuối trục, trục ngang là bên phải và trục dọc là ở dưới.</li>
+<li><strong>space-around</strong>: các <strong>items</strong> trên trục sẽ được cấp các khoảng trống bằng nhau: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/1iqft2n73_image.png" alt="alt text"></li>
+<li><strong>space-between</strong>: các <strong>items</strong> trên trục sẽ được phân bố đều trên trục, item đầu sẽ nằm đầu bên trái trục và item cuối sẽ nằm  đầu bên phải trục: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5q7xhb2pp4_image.png" alt="alt text"></li>
+</ul>
+<p>Đây là hình tổng quát, minh họa cho các giá trị ở trên:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/mylavdywn2_image.png" alt="alt text"> (<em>Nguồn từ CSS-tricks</em>)</p>
+<h3>align-items</h3>
+<p>với <strong>align-items</strong> chúng ta có thể hình dung nó giống như <strong>justify-content</strong> nhưng là phiên bảng dành cho trục chéo (nghĩa là hướng vuông góc với trục chính, nếu trục chính là ngang thì nó sẽ căn chỉnh theo hướng dọc ). <strong>align-items</strong> có các giá trị sau:</p>
+<ul>
+<li><strong>flex-start</strong>: căn các <strong>items</strong> ra đầu trục chéo</li>
+<li><strong>flex-end</strong>: căn các <strong>items</strong> ra cuối trục chéo</li>
+<li><strong>center</strong>: căn các <strong>items</strong> ra giữa trục chéo</li>
+<li><strong>baseline</strong>: các <strong>items</strong> sẽ được căn như thế này: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/fetgg4xu0v_image.png" alt="alt text"></li>
+<li><strong>stretch</strong>: đây là giá trị default, các <strong>items</strong> sẽ bị kéo giãn ra cho đủ chiều dài của container, nếu chúng ta không đặt chiều cao cho các <strong>items</strong>: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/z8td80hpds_image.png" alt="alt text"></li>
+</ul>
+<p>Hình minh họa cho các giá trị ở trên:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/cz8tyetf51_image.png" alt="alt text"> (<em>Nguồn CSS-tricks</em>)</p>
+<h3>align-content</h3>
+<p><strong>align-content</strong> có các giá trị như sau: <strong>center, flex-start, flex-end, space-around, space-between và stretch</strong>. Để dễ hiểu về phần này, dưới đây là ta có một hình ảnh ví dụ:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/f8s14shanh_image.png" alt="alt text"></p>
+<ul>
+<li>Hình trên chính là giá trị default của <strong>align-content</strong>  chính là <strong>stretch</strong> các <strong>items</strong> sẽ bị kéo dài để đủ lấp vào chiều cao của container.</li>
+<li>Tiếp theo nếu chúng ta dùng <code>align-content:center</code> thì:<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ccxk9s6urq_image.png" alt="alt text"> các <strong>items</strong> sẽ được căn chính giữa container parent</li>
+<li>Tiếp nữa nếu ta dùng <code>align-content:flex-start</code> <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/rh8pfioon5_image.png" alt="alt text"></li>
+<li>Còn nếu ta dùng <code>align-content:flex-end</code> <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/v3o042bijw_image.png" alt="alt text"></li>
+<li>Nếu ta dùng <code>align-content:space-around</code> thì nó sẽ như này <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/3b7rj2hhvh_image.png" alt="alt text"></li>
+<li>Và cuối cùng là <code>algin-content:space-between</code> <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/w0aa0o08lg_image.png" alt="alt text">
+Đó chính là các property quan trọng trong phần <strong>parent</strong> để tạo layout dễ dàng hơn, phần sau chúng ta sẽ đi tới các property cho <strong>items</strong></li>
+</ul>
+<h2>Link tham khảo</h2>
+<ul>
+<li>W3School <a href="https://www.w3schools.com/css/css3_flexbox.asp">ở đây</a></li>
+<li>CSS-tricks <a href="https://css-tricks.com/almanac/properties/a/align-content/">ở đây</a> (đây là phần link của <strong>align-content</strong> kéo xuống dưới sẽ thấy phần related với các property khác)</li>
+</ul>
+
+      </div>
+
+      <div class="blog-tags-zone">
+        <p class="tag-label">Tags:</p>
+        <ul class="blog-tags">
+          
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/css.html">css</a>
+      </li>
+      
+        </ul>
+      </div>
+    </div>
+    <div class="blog-footer">
+      <p>You are free to use this content but please ciate</p>
+      <p style="text-align: center">
+        Created with
+        <strong
+          ><a
+            href="https://github.com/tortoise10h/Hi-Blog-Engine"
+            target="_blank"
+            >Hi-blog-engine</a
+          ></strong
+        >
+      </p>
+    </div>
+  </body>
+
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script>
+    window.onload = () => {
+      const blogContent = document.getElementById('mainContent').innerText
+      const wordsPerMinute = 200 // Average case.
+      let minRead
+      let numOfWords = blogContent.split(' ').length // Split by words
+      if (numOfWords > 0) {
+        let value = Math.ceil(numOfWords / wordsPerMinute)
+        minRead = value
+      }
+      document.getElementById(
+        'readingTime'
+      ).innerHTML = `Dài &#128195; ${numOfWords} từ ~ &#128214; ${minRead} phút đọc`
+    }
+  </script>
+</html>
+    

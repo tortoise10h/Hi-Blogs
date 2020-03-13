@@ -92,7 +92,7 @@
 body {
   box-sizing: border-box;
   font-family: "roboto", sans-serif;
-  counter-reset: tagTableContentThirdHeader;
+  counter-reset: secondHeader;
   padding: 0;
   margin: 0;
 }
@@ -294,45 +294,52 @@ h4,
 h5,
 h6 {
   font-family: "spacemono-regular", monospace;
+  font-weight: 500;
   padding: 0;
   margin: 0;
 }
 
-/* Font size custom */
-.main-content h1 {
-  font-size: 1.7em;
-}
+/* .main-content h2 { */
+/* color: #17a2b8; */
+/* } */
+/* .main-content h3 { */
+/* color: #a23b72; */
+/* } */
+/* .main-content h4 { */
+/* color: #c73e1d; */
+/* } */
+
 .main-content h2 {
-  font-size: 1.3em;
-}
-.main-content h3 {
-  font-size: 1em;
-}
-.main-content h4 {
-  font-size: 0.9em;
+  counter-reset: thirdHeader;
 }
 
 /* Before custom */
-.main-content h1::before {
-  content: "#";
-  margin-right: 0.3em;
-  color: #ccc;
-}
 .main-content h2::before {
-  content: "-";
+  content: "#";
   display: inline-block;
-  margin-right: 0.3em;
+  position: relative;
+  left: -10px;
   color: #ccc;
+  font-family: "roboto-regular";
 }
 .main-content h3::before {
-  content: "*";
-  margin-right: 0.3em;
+  counter-increment: thirdHeader;
+  content: counter(thirdHeader) ". ";
+  /* content: "\268A"; */
+  display: inline-block;
+  position: relative;
+  left: -10px;
   color: #ccc;
+  font-family: "roboto-regular";
 }
 .main-content h4::before {
   content: "\25CB";
-  margin-right: 0.3em;
+  display: inline-block;
+  position: relative;
+  margin-left: 0.3em;
+  left: -10px;
   color: #ccc;
+  font-family: "roboto-regular";
 }
 
 .author-sign {
@@ -454,8 +461,7 @@ h6 {
 }
 
 .tag-table-content h3::before {
-  counter-increment: tagTableContentThirdHeader;
-  content: counter(tagTableContentThirdHeader) ". ";
+  content: "\268A";
   display: inline-block;
   margin-right: 0.3em;
   color: #ccc;

@@ -1,0 +1,147 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Tạo thanh tìm kiếm với hiệu ứng "gậy như ý" bằng HTML và CSS | Hi's blog</title>
+    <link
+      rel="icon"
+      type="image/icon"
+      href="../img/engine-img/shiba-with-glasses.jpg"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/emoji-dist.css" />
+  </head>
+
+  <body>
+    <div class="blog-logo">
+      <a href="file:/D:/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">Tạo thanh tìm kiếm với hiệu ứng "gậy như ý" bằng HTML và CSS</h1>
+        <div class="date-and-min-read">
+          <p class="blog-date">
+            &#x1F550; Saturday, August 4th 2018
+          </p>
+          <p class="min-read" id="readingTime"></p>
+        </div>
+      </div>
+      <div class="main-content" id="mainContent">
+        <p>Trong bài viết này chúng ta sẽ tìm hiểu việc tạo ra một thanh tìm kiếm và khi nhấp chọn vào sẽ có hiệu ứng từ từ dài ra và từ từ thu ngắn lại khi bỏ chọn giống như gậy như ý của Tề Thiên Đại Thánh :v</p>
+<h2>Tạo thanh tìm kiếm đơn giản</h2>
+<p>Trước hết chúng ta cần phải tạo được một thanh tìm kiếm đơn giản với HTML:</p>
+<pre><code>&lt;form&gt;
+    	&lt;input type=&quot;text&quot; name=&quot;search&quot; placeholder=&quot;Search..&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<p>Kết quả chúng ta sẽ có được một thanh tìm kiếm như sau <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ognjlm2oot_Capture.PNG" alt="alt text">
+Đây là một thanh tìm kiếm bình thường tạo bởi  thẻ <code>&lt;form&gt;</code> của html với thuộc tính placeholder để có được chữ “<em>Search…</em>” bên trong khung tìm kiếm
+###“Trang điểm” thanh tìm kiếm bằng CSS
+Trước khi đi đến tạo hiệu ứng cho thanh tìm kiếm thì ta sẽ tiến hành “trang điểm” cho nó một tí bằng CSS</p>
+<pre><code>	input[type=&quot;text&quot;] {
+      width: 130px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 4px;
+      outline:none;
+      padding: 12px 14px;
+	}
+</code></pre>
+<p>Sau đoạn code CSS trên ta sẽ được một thanh tìm kiếm nhìn có vẻ ổn hơn với độ dài được giới hạn là 130px (<code>outline:none</code> với mục đích loại bỏ viền màu xanh mặc định của trình duyệt mỗi khi ta nhấp chọn vào thanh tìm kiếm, ta sẽ làm hiệu ứng màu sắc hơn đó một tí sau :3)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/z3pppvwmmw_Capturdsfe.PNG" alt="alt text"></p>
+<h2>Tạo hiệu ứng “gậy như ý”</h2>
+<p>Làm đẹp đã xong, bước tiếp theo ta tiến hành đi đến tạo hiệu ứng cho thanh tìm kiếm mỗi khi nhấp chọn vào. Thứ nhất là <strong>dài ra</strong>. Để khi nhấp chọn vào thanh tìm kiếm nó sẽ dài ra thì ta dùng <code>:focus</code> để thiết lập cho nó như sau:</p>
+<pre><code>input[type=&quot;text&quot;]:focus{
+	width:500px; 
+}
+</code></pre>
+<p>Khi nhấp chọn vào thanh tìm kiếm thì độ dài của nó sẽ tăng từ 130px lên 500px (chúng ta có thể làm cho nó dài hơn nếu muốn bằng việc tăng <code>width</code> lên)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/v4a6saum_Capture%20lan%204.PNG" alt="alt text">
+<strong>Dài ra</strong> đã có, tuy nhiên việc <strong>dài ra</strong> này diễn ra quá nhanh khiến ta không cảm thấy mượt mà và có nét chưa <em>hiệu ứng</em> giống “gậy như ý” :v. Cho nên ta sẽ thêm hiệu ứng <strong>từ từ</strong> vào để việc <strong>dài ra</strong> trông mượt mà hơn bằng cách thêm <code>transition</code> vào đoạn code CSS ở trên, ta được:</p>
+<pre><code>	input[type=&quot;text&quot;] {
+      width: 130px;
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 4px;
+      outline:none;
+      padding: 12px 14px;
+
+	  transition:0.6s ease-in-out;
+	}
+</code></pre>
+<p>Việc thêm transition vào sẽ giúp cho sự <strong>dài ra</strong> của thanh tìm kiếm diễn ra chậm hơn nên sẽ trông mượt mà hơn. Còn 0.6s ở đây là thời gian từ lúc bắt đầu <strong>dài ra</strong> đến lúc đạt được kích cở tuyệt đối mà chúng ta giới hạn, bạn có thể hoàn  toàn tăng thời gian delay lên nếu muốn quá trình diễn ra chậm hơn (chậm ít thôi, chậm nhiều mất hứng lắm :v). Ngoài ra vì việc bỏ đi viền xanh ghi nhấp vào nên ta sẽ trang trí thêm một tí màu để khi nhấp vào trông sẽ đẹp hơn (ở đây mình lọn màu hồng nhạt :3) ta sẽ được đoạn code sau:</p>
+<pre><code>input[type=&quot;text&quot;]:focus{
+	width:500px; 
+    background-color:lightpink;
+}
+</code></pre>
+<p>Đây là thanh tìm kiếm của chúng ta sau khi nhấp chọn (trông quá cute :v)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/3nmiof4c5a_Capture%20lan%205.PNG" alt="alt text">
+Và dĩ nhiên, hiệu ứng chuyên sang màu hồng cũng sẽ từ từ chuyển sang dựa trên thời gian bạn xét ở <code>transition</code>.</p>
+<p>Vậy là đã xong việc tạo nên một thanh tìm kiếm với hiệu ứng “gậy như ý” của Tôn Đại Thánh. Chúng ta có thể kết hợp nó vào Navigation Bar để trông hay hơn.</p>
+<p data-height="265" data-theme-id="dark" data-slug-hash="Lrvrjw" data-default-tab="css,result" data-user="tortoise10h" data-embed-version="2" data-pen-title="Navigation bar with animated search" class="codepen">See the Pen <a href="https://codepen.io/tortoise10h/pen/Lrvrjw/">Navigation bar with animated search</a>
+<h2>Link bài tham khảo</h2>
+<p>Mình tham khảo tại W3school <a href="https://www.w3schools.com/css/css_form.asp">ở đây nha</a></p>
+
+      </div>
+
+      <div class="blog-tags-zone">
+        <p class="tag-label">Tags:</p>
+        <ul class="blog-tags">
+          
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/coding.html">coding</a>
+      </li>
+      
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/html.html">html</a>
+      </li>
+      
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/css.html">css</a>
+      </li>
+      
+        </ul>
+      </div>
+    </div>
+    <div class="blog-footer">
+      <p>You are free to use this content but please ciate</p>
+      <p style="text-align: center">
+        Created with
+        <strong
+          ><a
+            href="https://github.com/tortoise10h/Hi-Blog-Engine"
+            target="_blank"
+            >Hi-blog-engine</a
+          ></strong
+        >
+      </p>
+    </div>
+  </body>
+
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script>
+    window.onload = () => {
+      const blogContent = document.getElementById('mainContent').innerText
+      const wordsPerMinute = 200 // Average case.
+      let minRead
+      let numOfWords = blogContent.split(' ').length // Split by words
+      if (numOfWords > 0) {
+        let value = Math.ceil(numOfWords / wordsPerMinute)
+        minRead = value
+      }
+      document.getElementById(
+        'readingTime'
+      ).innerHTML = `Dài &#128195; ${numOfWords} từ ~ &#128214; ${minRead} phút đọc`
+    }
+  </script>
+</html>
+    

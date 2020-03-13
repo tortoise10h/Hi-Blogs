@@ -1,0 +1,214 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Cấu trúc CSS Box Model | Hi's blog</title>
+    <link
+      rel="icon"
+      type="image/icon"
+      href="../img/engine-img/shiba-with-glasses.jpg"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/emoji-dist.css" />
+  </head>
+
+  <body>
+    <div class="blog-logo">
+      <a href="file:/D:/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">Cấu trúc CSS Box Model</h1>
+        <div class="date-and-min-read">
+          <p class="blog-date">
+            &#x1F550; Tuesday, August 28th 2018
+          </p>
+          <p class="min-read" id="readingTime"></p>
+        </div>
+      </div>
+      <div class="main-content" id="mainContent">
+        <h2>CSS Box Model là gì?</h2>
+<p>Ở trong HTML với mọi element chúng ta có thể gọi nó là một cái “hộp”. Và trong CSS thì thuật ngữ Box Model dùng để nói về design và layout. Chúng ta có thể coi CSS Box Model giống như là một cái hộp bao quanh element của chúng ta và trong đó có rất nhiều lớp dày mỏng khác nhau, các lớp dày mỏng đó bao gồm: margins, border, padding và cuối cùng là phần nội dung của chúng ta (text và ảnh). Chúng ta có thể xem hình dưới đây để dễ hình dung hơn về Box Model:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/k68zn5q971_image.png" alt="alt text"></p>
+<ul>
+<li><strong>Content:</strong> như đã nói ở trên đây là phần mà text và hình ảnh của chúng ta xuất hiện</li>
+<li><strong>Padding:</strong> là một khoảng trống kế tiếp bọc xung quanh <strong>content</strong></li>
+<li><strong>Border</strong>: phần khung bao bọc xung quanh <strong>padding</strong> và <strong>content</strong></li>
+<li><strong>Margin</strong>: cuối cùng, <strong>margin</strong> là phần ngoài cùng của Box Model, chỉ là một khoảng trống không màu</li>
+</ul>
+<p>Tiếp theo chúng ta sẽ đi đến từng phần một của một Box Model để hiểu rõ hơn về tính chất cũng như cách tính toán chính xác cho một Box Model</p>
+<h3>Content</h3>
+<p>Tiếp tục nhắc lại <strong>content</strong> là phần xuất hiện của text và hình ảnh, phần này không có gì đặc biệt để nói cho lắm, tổng kích cở của text bao nhiêu (có thể lớn nhỏ nếu chúng ta tùy chỉnh <code>font-size</code>) hay hình ảnh bao lớn thì đó cũng là kích cở của <strong>content</strong>. Tuy nhiên, có một điều cần chú ý là <strong>content</strong> và hai thuộc tính <strong>height</strong> và <strong>width</strong>, khi chúng ta đặt một <strong>height</strong> hay một <strong>width</strong> hoặc thậm chí cả hai cho một element thì <strong>height</strong> và <strong>width</strong> này <strong>chỉ tác động lên một vùng duy nhất đó là content chứ không hề đá động gì đến padding, border hay margin cả.</strong> Vậy, phần kích thước đầu tiên của Box Model đó chính là content.</p>
+<h3>Padding</h3>
+<p>Nói đơn giản về <strong>padding</strong> thì nó là thuộc tính dùng để tạo ra một vùng khoảng trống bao bọc xung quanh <strong>content</strong> và nó sẽ nằm bên trong <strong>border</strong>. Khi xét padding cho một element ta có thể xét theo 2 kiểu:</p>
+<ul>
+<li>Xét theo từng bên của element: top, right, bottom và left như sau:
+<ul>
+<li>padding-top</li>
+<li>padding-right</li>
+<li>padding-bottom</li>
+<li>padding-left</li>
+</ul>
+</li>
+<li>Hay là xét theo kiểu viết tắc:
+<ul>
+<li>padding: 5px  6px   8px    7px
+(top right bottom left)</li>
+<li>padding:  5px     6px     7px
+(top  right&amp;left  bottom)</li>
+<li>padding:      5px        6px
+(top&amp;bottom right&amp;left)</li>
+<li>padding: 5px (cho toàn bộ 4 mặt)</li>
+</ul>
+</li>
+</ul>
+<p>Và chúng ta có các đơn vị để xét <strong>padding</strong> như:</p>
+<ul>
+<li>“Đơn vị đo chiều dài” như: cm, px, em, etc</li>
+<li>Phần trăm (%): cái % này sẽ phụ thuộc vào <strong>width</strong> của thằng element chứa nó</li>
+<li>Inherit: kế thừa cái <strong>padding</strong> đã được xét ở element mẹ (hay bố cũng được)</li>
+</ul>
+<p>Có một điều cần lưu ý nữa là giữa <strong>padding</strong> và <strong>width</strong>. Ví dụ chúng ta cho một thằng <code>div</code>với thuộc tính như sau:</p>
+<pre><code>div{
+	width:350px;
+    padding:25px;
+}
+</code></pre>
+<p>Thì như đã nói ở trên thằng <strong>width</strong> là chỉ xét cho mỗi phần <strong>content</strong> có nghĩa là giờ phần <strong>content</strong> của mình nó dài 350px chưa kể <strong>padding</strong>. Vậy để tính được hết chiều dài của cái <code>div</code> này thì mình phải cộng thêm 50px nửa (25px padding bên trái và 25px padding bên phải) =&gt; tổng chiều rộng của cái <code>div</code> là 400px.
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/aj7pasxma5_image.png" alt="alt text"></p>
+<h3>Border</h3>
+<p><strong>Border</strong>, lớp tiếp theo của Box Model, bỏ qua các phần trang trí màu mè của nó, chúng ta chỉ xét tới các phần như <code>border-width</code> hay xét border cho các mặt của element. Thứ nhất, nói sơ qua cấu trúc <strong>border</strong> thì nó sẽ gồm có:</p>
+<ul>
+<li><code>border-width</code>: độ rộng của border tính bằng các đơn vị như: in px, pt, cm, em, etc</li>
+<li><code>border-style</code>: style cho border như kiểu đường thằng, chấm bi, song nét,… (solid, dotted, double,… )</li>
+<li><code>border-color</code>: màu cho border và được xét bởi nhiều cách: tên màu, giá trị hexa, giá trị rgb hay là trong suốt (transparent)</li>
+</ul>
+<p>Hoặc cả đống trên có thể ghi tắc lại thành <code>border: chiềurộng kiểu màu</code> ví dụ <code>border:2px solid black</code>, đó là xét cho tất cả 4 phía: top, right, bottom và left, nếu muốn chúng ta có thể xét riêng cho từng phía với từng kiểu như sau:</p>
+<ul>
+<li><code>border-top</code></li>
+<li><code>border-right</code></li>
+<li><code>border-bottom</code></li>
+<li><code>border-left</code></li>
+</ul>
+<p>Việc xét cho toàn bộ <strong>border</strong> hay xét cho từng phía sẽ gây ảnh hưởng khác nhau đến Box Model, lấy lại ví dụ ở padding lúc nãy</p>
+<pre><code>div{
+	width:350px;
+    padding:25px;
+}
+</code></pre>
+<p>Như trên là chúng có ta một <code>div</code> với chiều rộng là 400px nếu chúng ta thêm vào dòng <code>border:5px solid orange</code> thì chiều rộng của <code>div</code> sẽ lên là 410px vì nó được cộng thêm 5px của border bên trái và 5px của border bên phải. Tuy nhiên, nếu ta chỉ thêm vào <code>border-left:5px solid orange</code> thì chiều rộng của <code>div</code> chỉ là 405px vì chỉ có 5px của border trái còn bên phải thì làm gì có mà thêm.</p>
+<h3>Margin</h3>
+<p>Lớp cuối cùng của Box Model đó chính là lớp <strong>margin</strong> bên ngoài, <strong>margin</strong> là một thuộc tính dùng để tạo khoảng cách xung quanh element để cách element đó với các thứ khác và phần <strong>margin</strong> sẽ nằm bên ngoài <strong>border</strong>. Giống như <strong>padding</strong> thì <strong>margin</strong> cũng được xét theo hai kiểu, một là:</p>
+<ul>
+<li>margin-top</li>
+<li>margin-right</li>
+<li>margin-bottom</li>
+<li>margin-left</li>
+</ul>
+<p>Và thứ hai là viết tắc tương tự như <strong>padding</strong>. Về phần đơn vị, <strong>margin</strong> cũng có các kiểu: “đơn vị đo độ dài”, % hay inherit như <strong>padding</strong>. Tuy nhiên, margin còn có thêm một giá tị nửa, đó chính là <code>margin:auto</code>. Khi ta dùng cái <code>auto</code> này thì trình duyệt sẽ tự động tính toán và đặt lại khoảng cách cho element sao cho nó được căn ngay chính giữa bên trong container chứa nó.</p>
+<p>Một vấn đề cuối cùng của <strong>margin</strong> đó là <strong>margin collapse</strong>, chúng ta sẽ đưa ra một ví dụ để có thể dễ dàng giải thích. Ví dụ: Chúng ta sẽ cho 2 element <code>h1</code> và <code>h2</code> nằm trong một <code>div</code> có class là “left” như sau:</p>
+<pre><code>&lt;div class=&quot;left&quot;&gt;
+	&lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;h2&gt;Holle&lt;/h2&gt;
+&lt;/div&gt;
+</code></pre>
+<p>và tiếp tục ta sẽ cho element <code>h1</code> với <code>margin-bottom</code> là 50px và element <code>h2</code> với <code>margin-top</code> là 20px.</p>
+<pre><code>div.left h1{
+	margin-bottom:50px;
+}
+div.left h2{
+	margin-top:20px;
+}
+</code></pre>
+<p>Nếu như xem ở trên xong chúng ta sẽ nghĩ rằng 2 thằng <code>h1</code> và <code>h2</code> này sẽ cách nhau là 70px (50px + 20px). Tuy nhiên, do cậu <strong>margin collapse</strong> này mà 2 element <code>h1</code> <code>h2</code> của chúng ta chỉ cách nhau có 50px
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nglw37k6y9_image.png" alt="alt text">
+Để rõ ràng, chúng ta sẽ viết thêm một <code>div</code> khác với class là “right” và vẫn với 2 dòng HTML  của <code>h1</code> và <code>h2</code> kia. Tuy nhiên, chúng ta sẽ chỉ cho <code>h1</code> có <code>margin-bottom</code> là 70px để so sánh.</p>
+<pre><code>div.right h1{
+	margin-bottom:70px;
+}
+</code></pre>
+<p>Và đây là kết quả của chúng ta:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/kwo6glfo3a_image.png" alt="alt text">
+Như chúng ta đã thấy, bên phía class “left” mặc dù có cả <code>margin-bottom:50px</code> của <code>h1</code> và <code>margin-top:20px</code> của <code>h2</code> nhưng khoảng cách vẫn chỉ là 50px bé hơn so với khoảng cách một <code>margin-bottom:70px</code> của <code>h1</code> bên  class “right”. Đó chính là <strong>margin collapse</strong>.</p>
+<p>Tóm lại, dựa trên kiến thức của Box Model, nếu ta chúng ta có một element <code>div</code> chẳng hạn được viết như thế này:</p>
+<pre><code>div{
+	background-color:#1abc9c;
+	width:300px;
+    padding:30px;
+  	border:10px solid black;
+	margin:20px;
+}
+</code></pre>
+<p><em>Lưu ý đã có chỉnh <code>background-color</code> của <code>body</code> sang màu #e0e0e0</em>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/343pz4v74t_image.png" alt="alt text"></p>
+<p>Thì độ rộng của nó sẽ là 420px được tính như sau: (tạm gọi là total)
+total = <code>width</code> + <code>right padding</code> + <code>left padding</code> + <code>right border</code> + <code>left border</code> + <code>right margin</code> + <code>left margin</code>
+total = 300px + 30px + 30px + 10px + 10px + 20px + 20px = 420px.
+Đây là một kiến thức quan trong chúng ta cần hiểu rõ để áp dụng vào tạo layout web hay để sau này khi code HTML và CSS sẽ không bị bối rối trong lúc code khi chạm phải mấy cái này :3.</p>
+<h2>Link tham khảo</h2>
+<ul>
+<li>Height and width <a href="https://www.w3schools.com/css/css_dimension.asp">Ở đây</a></li>
+<li>Padding <a href="https://www.w3schools.com/css/css_padding.asp">Ở đây</a></li>
+<li>Borders <a href="https://www.w3schools.com/css/css_border.asp">Ở đây</a></li>
+<li>Margins <a href="https://www.w3schools.com/css/css_margin.asp">Ở đây</a></li>
+<li>Box Model <a href="https://www.w3schools.com/css/css_boxmodel.asp">Ở đây</a></li>
+</ul>
+
+      </div>
+
+      <div class="blog-tags-zone">
+        <p class="tag-label">Tags:</p>
+        <ul class="blog-tags">
+          
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/coding.html">coding</a>
+      </li>
+      
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/css.html">css</a>
+      </li>
+      
+        </ul>
+      </div>
+    </div>
+    <div class="blog-footer">
+      <p>You are free to use this content but please ciate</p>
+      <p style="text-align: center">
+        Created with
+        <strong
+          ><a
+            href="https://github.com/tortoise10h/Hi-Blog-Engine"
+            target="_blank"
+            >Hi-blog-engine</a
+          ></strong
+        >
+      </p>
+    </div>
+  </body>
+
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script>
+    window.onload = () => {
+      const blogContent = document.getElementById('mainContent').innerText
+      const wordsPerMinute = 200 // Average case.
+      let minRead
+      let numOfWords = blogContent.split(' ').length // Split by words
+      if (numOfWords > 0) {
+        let value = Math.ceil(numOfWords / wordsPerMinute)
+        minRead = value
+      }
+      document.getElementById(
+        'readingTime'
+      ).innerHTML = `Dài &#128195; ${numOfWords} từ ~ &#128214; ${minRead} phút đọc`
+    }
+  </script>
+</html>
+    

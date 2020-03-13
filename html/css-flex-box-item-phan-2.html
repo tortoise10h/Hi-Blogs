@@ -1,0 +1,173 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>CSS Flex-box: items (Phần 2) | Hi's blog</title>
+    <link
+      rel="icon"
+      type="image/icon"
+      href="../img/engine-img/shiba-with-glasses.jpg"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/emoji-dist.css" />
+  </head>
+
+  <body>
+    <div class="blog-logo">
+      <a href="file:/D:/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">CSS Flex-box: items (Phần 2)</h1>
+        <div class="date-and-min-read">
+          <p class="blog-date">
+            &#x1F550; Tuesday, September 4th 2018
+          </p>
+          <p class="min-read" id="readingTime"></p>
+        </div>
+      </div>
+      <div class="main-content" id="mainContent">
+        <p>Ở phần trước mình đã nói về các property của phần <strong>parent</strong> trong CSS Flex-box (xem lại <a href="https://kipalog.com/posts/CSS-Flex-box--Parent--Phan-1">ở đây</a>). Hôm nay chúng ta sẽ nói tiếp phần còn lại đó là các property của phần <strong>items</strong>. Trong phần <strong>items</strong> chúng ta sẽ có các property chính sau: <strong>order, flex-grow, flex-shrink, flex-basis, flex và align-self</strong>.</p>
+<h2>Các property của items</h2>
+<h3>order</h3>
+<p><strong>order</strong> đơn giản là property dùng để đặt lại thứ tự của các item bên trong parent theo ý của chúng ta, syntax của <strong>order</strong> sẽ là: <code>order: sốnguyên</code>. Ví dụ ta có đoạn code sau:</p>
+<pre><code>.flex-container{
+	display:flex;
+	background-color:#ddd;
+	flex-wrap:wrap;
+}
+.child{
+	margin:10px;
+	padding:10px;
+	width:100px;
+	font-size:20px;
+	background-color:#1abc9c;
+}
+</code></pre>
+<pre><code>&lt;div class=&quot;flex-container&quot;&gt;
+		&lt;div class=&quot;child&quot;&gt;1&lt;/div&gt;
+		&lt;div class=&quot;child&quot;&gt;2&lt;/div&gt;
+		&lt;div class=&quot;child&quot;&gt;3&lt;/div&gt;
+		&lt;div class=&quot;child&quot;&gt;4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Chúng ta sẽ được như thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/xzxyr229ec_image.png" alt="alt text">
+Và nếu chúng ta dùng <strong>order</strong> để đặt lại vị trí của các <strong>items</strong> bên trong như sau (chỉ thêm vào, còn lại mọi thứ giữ nguyên) (dùng ngay pseudo-class <i class='em em-laughing'></i>)</p>
+<pre><code>.child:nth-child(1){order:4;}
+.child:nth-child(2){order:1;}
+.child:nth-child(3){order:3;}
+.child:nth-child(4){order:2;}
+</code></pre>
+<p>Thì chúng ta sẽ được như thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/yf6hgak0sv_image.png" alt="alt text">
+Vị trí của các item bên trong sẽ bị thay đổi theo vị trí mà ta dùng <strong>order</strong> để đặt
+###flex-grow
+Property này dùng để quy định xem độ lớn của một item sẽ lớn như thế nào so với các item còn lại, syntax của <strong>flex-grow</strong> sẽ là <code>flex-grow: sốnguyên</code>. Vẫn với ví dụ ở trên, nếu chúng ta cho 4 item trên đều có flex-grow là 1:</p>
+<pre><code>.child:nth-child(1){flex-grow:1;}
+.child:nth-child(2){flex-grow:1;}
+.child:nth-child(3){flex-grow:1;}
+.child:nth-child(4){flex-grow:1;}
+</code></pre>
+<p>Thì chúng ta sẽ được 4 items bằng nhau như thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/1m3wmju4m0_image.png" alt="alt text">
+Tuy nhiên nếu chúng ta sửa lại một tí, cho một item có flex-grow là 2 và 3 item còn lại là 1:</p>
+<pre><code>.child:nth-child(1){flex-grow:1;}
+.child:nth-child(2){flex-grow:2;}
+.child:nth-child(3){flex-grow:1;}
+.child:nth-child(4){flex-grow:1;}
+</code></pre>
+<p>Chúng ta sẽ thấy độ lớn của item được xét lên flex-grow 2 sẽ có tỉ lệ gấp đôi các item còn lại:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/n2eg5rwir0_image.png" alt="alt text"></p>
+<h3>flex-shrink</h3>
+<p>Nếu như <strong>flex-grow</strong> là quy định độ lớn của item thì <strong>flex-shirnk</strong> sẽ quy định yếu tố co lại của item, nó sẽ quyết định một item sẽ bị co lại như thế nào so với các item còn lại, syntax của nó sẽ là <code>flex-shrink: sốnguyên</code>.</p>
+<p>Resize browser nhỏ lại thì chúng ta sẽ thấy được item số 1 sẽ bị co lại nhỏ hơn so với 3 item kia tại vì nó được chỉnh <code>flex-shrink:6</code>:</p>
+<p data-height="265" data-theme-id="dark" data-slug-hash="ZjvGdo" data-default-tab="css,result" data-user="tortoise10h" data-pen-title="flex-shrink example1" class="codepen"> <a href="https://codepen.io/tortoise10h/pen/ZjvGdo/">flex-shrink example1</a> 
+### flex-basis
+**flex-basis** dùng để quy định độ dài ban đầu của một item, syntax của nó: `flex-basis: đơnvịđộdài`. Nếu ta có class child và độ dài của nó là 100px và chúng ta tùy chỉnh item thứ 2 trong 4 item với `flex-basis:300px`thì ta sẽ được như sau:
+![alt text](https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nwblromqa2_image.png)
+### flex
+**flex** là property dùng để ghi tắc cho 3 property ở trên: **flex-grow, flex-shrink và flex-basis**. thay vì chúng ta phải ghi:
+```
+.child{
+  flex-grow:1;
+  flex-shrink:6;
+  flex-basis:300px;
+}
+```
+thì ta sẽ có thể ghi gọn hơn với **flex**: `flex:1 6 300px;`. Và lưu ý:
+* Nếu ta dùng flex và  viết chỉ với một số  thế này: `flex:1;` thì nó sẽ hiểu đó chính là **flex-grow**.
+* Nếu ta dùng flex và viết với một "đơn vị độ dài" như thế này: `flex:200px;` thì nó sẽ hiểu là **flex-basis**.
+* Nếu ta dùng flex và viết với hai giá trị như thế này: `flex:1 200px;` thì nó sẽ hiểu là **flex-grow** và **flex-basis**
+*  Nếu ta dùng flex và viết với hai giá trị như thế này: `flex:1 2;` thì nó sẽ hiểu là **flex-grow** và **flex-shrink**
+*  Và nếu ta dùng flex và viết với 3 giá trị như thế này `flex;1 2 300px` thì sẽ lần lượt là **flex-grow, flex-shrink** và **flex-basis**.
+<h3>align-self</h3>
+<p>Property này có công dụng cũng giống như <strong>align-items</strong> của phần <strong>parent</strong> tuy nhiên nó là dùng phần <strong>items</strong>, chúng ta có thể dùng nó để đặt lại vị trí cho một số item ta thích (hoặc tất cả) mà <strong>align-items</strong> đã quy định, <strong>align-self</strong> cũng có các giá trị giống như là <strong>align-items</strong> đó là: <strong>flex-start, flex-end, center, stretch và baseline</strong>. Ví dụ ta có 8 item đã được căn ra giữa nhờ <code>align-items:center</code> như sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7u4ljzeqvg_image.png" alt="alt text">
+Tuy nhiên ta lại muốn thằng thứ 3 là phải nằm ở dưới cùng, thằng thứ 5 thì phải kéo giãn dài ra và thằng thứ 7 thì phải nằm trên đầu thì ta chỉ việc dùng <strong>align-self</strong> để đặt lại cho nó.</p>
+<pre><code>.child:nth-child(3){align-self:flex-end;}
+.child:nth-child(5){align-self:stretch;}
+.child:nth-child(7){align-self:flex-start;}
+</code></pre>
+<p>Và đây là kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/p8wviekasn_image.png" alt="alt text"></p>
+<h2>Link tham khảo</h2>
+<ul>
+<li>W3School <a href="https://www.w3schools.com/css/css3_flexbox.asp">ở đây</a></li>
+<li>CSS0-tricks <a href="https://css-tricks.com/almanac/properties/a/align-self/">ở đây</a> (đây là phần align-selft kéo xuống sẽ thấy related với các property khác)</li>
+</ul>
+
+      </div>
+
+      <div class="blog-tags-zone">
+        <p class="tag-label">Tags:</p>
+        <ul class="blog-tags">
+          
+      <li>
+        <a class="tag" href="file:/D:/Hi-Blogs/tag/html/css.html">css</a>
+      </li>
+      
+        </ul>
+      </div>
+    </div>
+    <div class="blog-footer">
+      <p>You are free to use this content but please ciate</p>
+      <p style="text-align: center">
+        Created with
+        <strong
+          ><a
+            href="https://github.com/tortoise10h/Hi-Blog-Engine"
+            target="_blank"
+            >Hi-blog-engine</a
+          ></strong
+        >
+      </p>
+    </div>
+  </body>
+
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script>
+    window.onload = () => {
+      const blogContent = document.getElementById('mainContent').innerText
+      const wordsPerMinute = 200 // Average case.
+      let minRead
+      let numOfWords = blogContent.split(' ').length // Split by words
+      if (numOfWords > 0) {
+        let value = Math.ceil(numOfWords / wordsPerMinute)
+        minRead = value
+      }
+      document.getElementById(
+        'readingTime'
+      ).innerHTML = `Dài &#128195; ${numOfWords} từ ~ &#128214; ${minRead} phút đọc`
+    }
+  </script>
+</html>
+    
