@@ -1,1 +1,18 @@
-{"blogs":[{"title":"Tìm hiểu về class trong Javascript","tags":["coding","javascript"],"date":"2019-12-21","publishMode":"publish","blogLink":"file:/D:/Hi-Blogs/html/tim-hieu-ve-class-trong-javascript.html","minRead":11}]}
+{
+   "blogs":[
+      {
+         "title":"Tìm hiểu về class trong Javascript",
+         "tags":[
+            "coding",
+            "javascript"
+         
+],
+         "date":"2019-12-21",
+         "publishMode":"publish",
+         "blogLink":"https://tortoise10h.github.io/Hi-Blogs/html/tim-hieu-ve-class-trong-javascript.html",
+         "minRead":11
+      
+}
+   
+]
+}
