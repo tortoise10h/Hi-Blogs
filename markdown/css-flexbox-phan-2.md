@@ -94,5 +94,6 @@ Và đây là kết quả:
 ## Link tham khảo
 * W3School [ở đây](https://www.w3schools.com/css/css3_flexbox.asp)
 * CSS0-tricks [ở đây](https://css-tricks.com/almanac/properties/a/align-self/) (đây là phần align-selft kéo xuống sẽ thấy related với các property khác)
+
 <<<<<Blog-Meta-Data>>>>>
-title:CSS Flex-box: items (Phần 2);publishMode:publish;tags:css;date:2018/09/04 00:00:00;
+title:CSS Flexbox phần 2: Items;publishMode:publish;tags:css;date:2018/09/28 00:00:00;

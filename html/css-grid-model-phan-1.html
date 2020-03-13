@@ -1,0 +1,229 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>CSS Grid model phần 1 | Hi's blog</title>
+    <link
+      rel="icon"
+      type="image/icon"
+      href="../img/engine-img/shiba-with-glasses.jpg"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/emoji-dist.css" />
+  </head>
+
+  <body>
+    <div class="blog-logo">
+      <a href="https:/tortoise10h.github.io/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
+      /></a>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">CSS Grid model phần 1</h1>
+        <div class="date-and-min-read">
+          <p class="blog-date">
+            &#x1F550; Friday, October 5th 2018
+          </p>
+          <p class="min-read" id="readingTime"></p>
+        </div>
+      </div>
+      <div class="main-content" id="mainContent">
+        <p>Như lần trước ,mình đã nói về <a href="https://kipalog.com/posts/CSS-Flex-box--Parent--Phan-1">Flex-box layout module</a> thì lần này chúng ta sẽ tiếp tục với một layout module mới, đó chính là <strong>Grid layout module</strong> - một layout module khác của CSS. <strong>Grid layout module</strong> (aka <strong>grid</strong>), khác với Flex-box ta đã nói ở phần trước, Flex-box là layout module một chiều - tức là một là hàng hai là cột chứ không thể cả hai, thì khi làm việc với <strong>Grid</strong> nó sẽ làm được điều đó, <strong>grid</strong> chia layout của một trang web ra cho chúng ta thao tác cả hàng lẫn cột.
+Grid rows:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/zveqtq2tmj_image.png" alt="alt text">
+Grid colums:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/e5qcnenyqx_image.png" alt="alt text">
+Và <strong>Grid</strong>  cũng tương tự như <strong>Flex-box</strong> ở chỗ là cấu trúc cũng được chia ra làm hai phần, đó là phần <strong>parent</strong> (hay là <strong>container</strong>)  và phần <strong>items</strong> bên trong. Ở phần container chúng ta cần phải có <code>display:grid</code> (giống như là bên <strong>flex-box</strong> thì sẽ là <code>display:flex</code>).</p>
+<pre><code>.container{
+	display;grid | inline-grid
+}
+</code></pre>
+<p>Ở đây chúng ta có cả <code>grid</code> và <code>inline-grid</code>, hai cái này thì về các property sử dụng là như nhau chỉ khác nhau ở chỗ là:</p>
+<ul>
+<li><code>grid</code>: tạo ra layout có level là block</li>
+<li><code>inline-grid</code>: tạo layout có level là inline</li>
+</ul>
+<p>Trong bài này chúng ta sẽ đi đến với các property chính ở phần <strong>container</strong> (bài sau sẽ là phần <strong>items</strong> )</p>
+<h2>Các propery của container</h2>
+<h3>grid-template-columns/rows</h3>
+<p>Đầu tiên chúng ta sẽ nói về hai propery quan trong này trước đó là: <code>grid-template-columns</code> và <code>grid-template-rows</code>. Chúng ta sẽ cho một ví dụ mẫu, ta có một đoạn <code>html</code> như này:</p>
+<pre><code>&lt;div class=&quot;grid-container&quot;&gt;
+        &lt;div&gt;1&lt;/div&gt;
+        &lt;div&gt;2&lt;/div&gt;
+        &lt;div&gt;3&lt;/div&gt;
+        &lt;div&gt;4&lt;/div&gt;
+        &lt;div&gt;5&lt;/div&gt;
+        &lt;div&gt;6&lt;/div&gt;
+        &lt;div&gt;7&lt;/div&gt;
+        &lt;div&gt;8&lt;/div&gt;
+ &lt;/div&gt;
+</code></pre>
+<p>Và đương nhiên ở phần CSS cho <code>grid-container</code> phải nhớ có <code>display:grid</code></p>
+<pre><code>.grid-container{
+        display:grid;
+        background-color:#eaeaea;
+        padding:1em;
+    }
+    .grid-container &gt; div{
+        background:#1abc9c;
+        padding:1em;
+    }
+</code></pre>
+<p>Và đương nhiên nếu chỉ có như vậy thì chúng ta vẫn chưa thấy được gì cả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/gsqm8kgil4_image.png" alt="alt text">
+Cho nên chúng ta sẽ cần tới hai property ở trên để tạo ra layout khi sử dụng <strong>grid</strong>.</p>
+<h4>grid-template-columns</h4>
+<p>Property này có tác dùng là giúp chúng ta quyết định trong <strong>container</strong> của chúng ta có bao nhiêu cột:</p>
+<pre><code>.grid-container{
+        display:grid;
+        grid-template-columns:đơnvị đơnvị đơnvị .....;
+    }
+</code></pre>
+<p>Phần đơn vị ở trên chúng ta có thể dùng các đơn vị độ dài:px, em, cm,… hay % hoặc là phân số (kí hiệu là <code>fr</code>, tìm hiểu rõ về <code>fr</code> <a href="https://alligator.io/css/css-grid-layout-fr-unit/">tại đây</a>) để quyết định độ rộng của mỗi cột. Ví dụ ta muốn biến ví dụ trên thành mỗi hàng sẽ có 3 cột ta sẽ làm như sau:</p>
+<pre><code>.grid-container{
+        *đống code cũ*
+        grid-template-columns:1fr 1fr 1fr;
+    }
+</code></pre>
+<p><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/c50i8rdj3r_image.png" alt="alt text">
+Chúng ta đã được 3 cột trên một hàng, tương tự nếu như muốn là 4 cột thì chỉ cần ghi <code>grid-template-columns:1fr 1fr 1fr 1fr;</code> và nhiều hơn nữa.</p>
+<p>Chúng còn một cách chia layout nữa, đó là dùng hàm <code>repeat()</code>, nếu chúng ta muốn chia layout ra làm 3 phần như ở trên bằng <code>repeat()</code> thì ta có thể viết như sau:</p>
+<pre><code>.grid-container{
+        /*đống code cũ*/
+        grid-template-columns:repeat(3, 1fr);
+    }
+</code></pre>
+<p>Chúng ta sẽ được kết quả tương tự. Với số 3 sẽ tượng trưng cho số lần lặp lại và đơn vị sau dấu phẩy sẽ là độ rộng của mỗi cột, ta có thể thêm nhiều hơn 1 đơn vị sau dấu phẩy, ví dụ như thế này <code>grid-template-columns:repeat(3, 1fr 3fr);</code> Thì kết quả sẽ là một cột 1fr một cột 3fr lặp lại 3 lần:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6h9k2au2bz_image.png" alt="alt text"></p>
+<h4>grid-template-rows</h4>
+<p>Property này sẽ tác dụng lên dòng, nó sẽ quy định độ cao của mỗi dòng là như thế nào</p>
+<pre><code>.grid-container{
+        display:grid;
+        grid-template-rows:đơnvị đơnvị đơnvị .....;
+    }
+</code></pre>
+<p>ví dụ ta có:</p>
+<pre><code>.grid-container{
+        display:grid;
+      	grid-template-columns:repeat(3, 1fr);
+        grid-template-rows:100px 200px;
+    }
+</code></pre>
+<p>Thì ra sẽ được:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/yelociv38h_image.png" alt="alt text">
+hàng thứ 3 chúng ta không viết nên nó sẽ là mặc định</p>
+<h3>Grid-gap:</h3>
+<p>Như chúng ta biết ở trên Grid layout module sẽ chia ra cột và dòng, giữa cột và dòng đó chúng ta sẽ có các đường ngắn cách như thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7cm99neik0_image.png" alt="alt text">
+<strong>grid-gap</strong> chính là property dùng để thao tác lên các đường ngắn cách đó, cụ thể là nếu xét <strong>grid-gap</strong> càng lớn thì độ rộng của các đường thằng đó cũng càng lớn.</p>
+<p><strong>grid-gap</strong> chính là phần viết tắc cho hai property <strong>grid-column-gap</strong> (thao tác cho các đường ngăn cách trên cột) và <strong>grid-row-gap</strong> (thao tác cho các đường ngăn cách trên dòng)
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7oylyhen5u_image.png" alt="alt text">
+Bình thường nếu chúng ta chia layout trong grid mà không có margin (cho phần items) hay grid-gap thì nó sẽ được như thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/pmeo8qhjec_image.png" alt="alt text">
+Và và nếu ta thêm vào <code>grid-column-gap:1em;</code>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5jmwz3y34c_image.png" alt="alt text">
+Thêm vào <code>grid-row-gap:2em;</code>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/pt2ssngwvo_image.png" alt="alt text">
+Và có thể thay thế hai dòng trên bằng <code>grid-gap:1em 2em</code></p>
+<h3>justify-items</h3>
+<p>Property này dùng để căn chỉnh các <strong>items</strong> bên trong <strong>container</strong> theo trục đứng dựa trên vị trí hàng và cột của nó. Lấy lại ví dụ ở trên:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ulsau8omjq_image.png" alt="alt text">
+Ta sẽ đi đến với các giá trị của <strong>justify-items</strong>:</p>
+<ul>
+<li><strong>justify-items:start</strong> giá trị này giúp căn các <strong>items</strong> bên trong về đầu trục (trục đứng). Nếu ta dùng <code>justify-items:start</code> lên hình ví dụ thì ta sẽ được: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ywiyyn0t7m_image.png" alt="alt text"> Các <strong>items</strong> bên trong đã được kéo về đầu trục và đồng thời cũng trở về đúng với chiều rộng của nó  (không bị kéo giãn ra cho full màn hình nữa). Và chúng ta đã nói ở trên trong <strong>grid</strong> các items chia ra theo từng hàng và cột và có các đường ở giữa (các đường thẳng đã nói ở phần <strong>grid-gap</strong>) nên sau khi bị căn chỉnh các items sẽ được đưa về tới đầu trục thẳng đó (nên ta mới thấy có các khoảng cách giữa các items)</li>
+<li><strong>justitfy-items:end</strong> ngược lại với <strong>start</strong> ở trên thì chúng ta sẽ có <strong>end</strong>, giá trị này sẽ căn các items bên trong về cuối trục đứng:<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/i60t0z8hmh_image.png" alt="alt text"></li>
+<li><strong>justify-items:center</strong> cái này thì sẽ căn các items ra giữa trục: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/lfv3uivnel_image.png" alt="alt text"></li>
+<li><strong>justify-items:stretch</strong> đây là giá trị mặc định, nó sẽ giãn items bên trong dài ra cho vưà hết màn hình (như hình ví dụ ban đầu)</li>
+</ul>
+<h3>align-items</h3>
+<p>Ngược lại với <strong>justify-items</strong> (thao tác dựa trên trục đứng) thì <strong>align-items</strong> sẽ là thao tác trên trục ngang, các giá trị có tác dụng tương tự như của <strong>justify-content</strong> nhưng với trục ngang. Chúng ta sẽ có một hình mới với chiều cao được cho là 500px:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6a6c42kq6d_image.png" alt="alt text"></p>
+<ul>
+<li><strong>align-items:start</strong>: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/yfv24cwbaz_image.png" alt="alt text"></li>
+<li><strong>align-items:end</strong> <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/4ol236gka3_image.png" alt="alt text"></li>
+<li><strong>align-items:center</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/icz82bgzw1_image.png" alt="alt text"></li>
+<li><strong>align-items:stretch</strong> Và stretch chính là giá trị mặc định <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6a6c42kq6d_image.png" alt="alt text"></li>
+</ul>
+<h3>justify-content</h3>
+<p>Cũng giống như <strong>justify-items</strong> đó là thao tác căn chỉnh các items trên trục đứng, tuy nhiên nếu như <strong>justify-items</strong> là căn chỉnh cho các items dựa trên các đường thẳng phần chia hàng và cột thì <strong>justify-content</strong> sẽ là căn chỉnh nguyên cả khối items. Chúng ta sẽ chỉnh lại một tí với <code>grid-template-columns:50px 50px 50px;</code> để các items giảm chiều rộng lại thì ta mới thấy được cách <strong>justify-content</strong> vận hành. ta có ví dụ:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/2y82o0ndec_image.png" alt="alt text">
+Các items đã được giảm chiều rộng xuống còn 50px:</p>
+<ul>
+<li><strong>justify-content:end</strong> khối items sẽ được đưa về cuối contianer:<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ioi0ons3a8_image.png" alt="alt text"></li>
+<li><strong>justify-content:center</strong> khối items sẽ được đưa ra giữa container: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/7av42l97t5_image.png" alt="alt text"></li>
+<li><strong>justify-content:start</strong> khối items được đưa về đầu container: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/2y82o0ndec_image.png" alt="alt text"></li>
+<li><strong>justify-content:space-around</strong>: bọc các khoảng trống bằng nhau xung quanh mỗi items theo trục đứng: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ucmbla7gai_image.png" alt="alt text"></li>
+<li><strong>justify-content:space-evenly</strong>: cũng là bọc khoảng trống xung quanh các items, tuy nhiên các khoảng trống này là bằng nhau  (xem hình ở <strong>space-evenly</strong> và <strong>space-around</strong> để so sánh): <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/orwfbll2qn_image.png" alt="alt text"></li>
+<li><strong>justify-content:space-between</strong>: cũng là bọc các khoảng trống đều nhau xung quanh items tuy nhiên sẽ không có ở điểm đầu và cuối: <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/4a9frs2v91_image.png" alt="alt text"></li>
+</ul>
+<h3>align-content</h3>
+<p>Nếu như <strong>align-items</strong> là ngược lại của <strong>justify-items</strong> còn lại thì tính chất của các giá trị hoàn toàn giống nhau (chỉ khác là <strong>justify-items</strong> là tục đứng còn <strong>align-items</strong> là trục ngang) thì <strong>align-content</strong> cũng y chang như vậy. Chúng ta sẽ lấy hình mẫu của <strong>align-items</strong> để minh họa:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6a6c42kq6d_image.png" alt="alt text"></p>
+<ul>
+<li><strong>align-content:end</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/xu9ks46hj2_image.png" alt="alt text"></li>
+<li><strong>align-content:center</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/70elgb8alj_image.png" alt="alt text"></li>
+<li><strong>align-content:start</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/hyqxiucn15_image.png" alt="alt text"></li>
+<li><strong>align-content:space-around</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/lvgj49ueeo_image.png" alt="alt text"></li>
+<li><strong>align-content:space-evenly</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/w1ehihqj2y_image.png" alt="alt text"></li>
+<li><strong>align-content:space-between</strong><img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/cpiqyz8m62_image.png" alt="alt text"></li>
+<li><strong>align-content:stretch</strong> là giá trị mặc định sẽ kéo giãn các items ra, như hình ví dụ đầu</li>
+</ul>
+<h2>Link tham khảo</h2>
+<ul>
+<li>W3School <a href="https://www.w3schools.com/css/css_grid_container.asp">ở đây</a></li>
+<li>CSS-tricks <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">ở đây</a></li>
+</ul>
+
+      </div>
+
+      <div class="blog-tags-zone">
+        <p class="tag-label">Tags:</p>
+        <ul class="blog-tags">
+          
+      <li>
+        <a class="tag" href="../tag/html/css.html">css</a>
+      </li>
+      
+        </ul>
+      </div>
+    </div>
+    <div class="blog-footer">
+      <p>You are free to use this content but please ciate</p>
+      <p style="text-align: center">
+        Created with
+        <strong
+          ><a
+            href="https://github.com/tortoise10h/Hi-Blog-Engine"
+            target="_blank"
+            >Hi-blog-engine</a
+          ></strong
+        >
+      </p>
+    </div>
+  </body>
+
+  <script src="../js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script>
+    window.onload = () => {
+      const blogContent = document.getElementById('mainContent').innerText
+      const wordsPerMinute = 200 // Average case.
+      let minRead
+      let numOfWords = blogContent.split(' ').length // Split by words
+      if (numOfWords > 0) {
+        let value = Math.ceil(numOfWords / wordsPerMinute)
+        minRead = value
+      }
+      document.getElementById(
+        'readingTime'
+      ).innerHTML = `Dài &#128195; ${numOfWords} từ ~ &#128214; ${minRead} phút đọc`
+    }
+  </script>
+</html>
+    

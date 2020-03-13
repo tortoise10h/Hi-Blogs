@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -16,10 +17,8 @@
 
   <body>
     <div class="blog-logo">
-      <a href="https://tortoise10h.github.io/Hi-Blogs/index.html"
-        ><img
-          src="../img/engine-img/shiba-with-glasses.jpg"
-          alt="Blog Logo Image"
+      <a href="https:/tortoise10h.github.io/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
       /></a>
     </div>
     <div class="container">
@@ -27,290 +26,104 @@
         <h1 class="blog-title">Tìm hiểu về CSS Gradient</h1>
         <div class="date-and-min-read">
           <p class="blog-date">
-            &#x1F550; Monday, August 13th 2018
+            &#x1F550; Saturday, August 18th 2018
           </p>
           <p class="min-read" id="readingTime"></p>
         </div>
       </div>
       <div class="main-content" id="mainContent">
-        <p>
-          Nói đơn giản nhất thì cái <strong>gradients</strong> này kiểu như dùng
-          để chuyển giao hai màu sắc trong cùng một background và khiến người
-          xem cảm thấy rất hòa hợp chứ không đơn thuần là ghép 1 nửa màu này và
-          màu kia lại với nhau.Và trước hết phải lưu ý nếu muốn dùng
-          <strong>gradient</strong> thì chúng ta phải biết rằng bắt buộc dùng 2
-          màu trở lên cho background (vì một màu thì trải đi đâu)… Đây là ví dụ
-          minh họa cho sự “hòa hợp” đó:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ixn1az4jts_image.png"
-            alt="alt text"
-          />
-          (<em>hình 1</em>) Chứ không kiểu thô thiển như này
-          <i class="em em-laughing"></i>
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ido0d6by66_image.png"
-            alt="alt text"
-          />
-          (<em>hình 2</em>) Sơ lược thì <strong>CSS Gradients</strong> sẽ có hai
-          kiểu là kiểu <em>trải dài</em> (<code>linear-gradient</code>) và kiểu
-          vòng tròn :v (<code>radial-gradient</code>). (mình dịch ra tiếng Việt
-          khá chuối)
-        </p>
-        <h2>CSS Linear Gradients</h2>
-        <h3>Các hướng của Linear Gradients</h3>
-        <p>
-          <code>linear-gradient</code> là kiểu <em>trải dài</em> như hình minh
-          họa ở trên (hình 1). Với <code>linear-gradient</code> chúng ta có 4
-          hướng cơ bản và cách viết trong CSS tương ứng:
-        </p>
-        <ul>
-          <li>
-            Từ trên xuống dưới (<code
-              >linear-gradient(to bottom, color, color,..)</code
-            >)
-          </li>
-          <li>
-            Từ dưới lên trên (<code
-              >linear-gradient(to top, color, color,..)</code
-            >)
-          </li>
-          <li>
-            Từ trái qua phải (<code
-              >linear-gradient(to right, color, color,..)</code
-            >)
-          </li>
-          <li>
-            Từ phải qua trái (<code
-              >linear-gradient(to left, color, color,..)</code
-            >) Dưới đây là hình minh họa:
-            <img
-              src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/lmxttzv6w1_image.png"
-              alt="alt text"
-            />
-          </li>
-        </ul>
-        <p>
-          Ngoài ra chúng ta có thể tùy chỉnh rộng hơn (theo góc độ chúng ta
-          muốn) bằng <strong>angle</strong>. Như việc mình không muốn nó từ trên
-          xuống vuông góc 90 độ như trên mà muốn nó đổ tà tà cở 120 độ thì chỉ
-          cần đơn giản như sau:
-          <code>linear-gradient(120deg, red ,blue);</code> (thay chỗ
-          <code>to bottom</code> và thay vào đó là độ ‘deg là kí hiệu của độ:
-          degrees’). Lưu ý phần góc là góc giữa cạnh đáy (horizontal line) và
-          cạnh của màu bắt đầu (gradient line). Hình minh họa:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/vk6qpo5jo9_image.png"
-            alt="alt text"
-          />
-        </p>
+        <p>Nói đơn giản nhất thì cái <strong>gradients</strong> này kiểu như dùng để chuyển giao hai màu sắc trong cùng một background và khiến người xem cảm thấy rất hòa hợp chứ không đơn thuần là ghép 1 nửa màu này và màu kia lại với nhau.Và trước hết phải lưu ý nếu muốn dùng <strong>gradient</strong> thì chúng ta phải biết rằng bắt buộc dùng 2 màu trở lên cho background (vì một màu thì trải đi đâu)… Đây là ví dụ minh họa cho sự “hòa hợp” đó:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ixn1az4jts_image.png" alt="alt text">
+(<em>hình 1</em>)
+Chứ không kiểu thô thiển như này <i class='em em-laughing'></i>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ido0d6by66_image.png" alt="alt text">
+(<em>hình 2</em>)
+Sơ lược thì <strong>CSS Gradients</strong> sẽ có hai kiểu là kiểu <em>trải dài</em> (<code>linear-gradient</code>) và  kiểu vòng tròn :v (<code>radial-gradient</code>). (mình dịch ra tiếng Việt khá chuối)</p>
+<h2>CSS Linear Gradients</h2>
+<h3>Các hướng của Linear Gradients</h3>
+<p><code>linear-gradient</code> là kiểu <em>trải dài</em> như hình minh họa ở trên (hình 1). Với <code>linear-gradient</code> chúng ta có 4 hướng cơ bản và cách viết trong CSS tương ứng:</p>
+<ul>
+<li>Từ trên xuống dưới (<code>linear-gradient(to bottom, color, color,..)</code>)</li>
+<li>Từ dưới lên trên (<code>linear-gradient(to top, color, color,..)</code>)</li>
+<li>Từ trái qua phải (<code>linear-gradient(to right, color, color,..)</code>)</li>
+<li>Từ phải qua trái (<code>linear-gradient(to left, color, color,..)</code>)
+Dưới đây là hình minh họa:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/lmxttzv6w1_image.png" alt="alt text"></li>
+</ul>
+<p>Ngoài ra chúng ta có thể tùy chỉnh rộng hơn (theo góc độ chúng ta muốn) bằng <strong>angle</strong>. Như việc mình không muốn nó từ trên xuống vuông góc 90 độ như trên mà muốn nó đổ tà tà cở 120 độ thì chỉ cần đơn giản như sau: <code>linear-gradient(120deg, red ,blue);</code> (thay chỗ <code>to bottom</code> và thay vào đó là độ ‘deg là kí hiệu của độ: degrees’). Lưu ý phần góc là góc giữa cạnh đáy (horizontal line) và cạnh của màu bắt đầu (gradient line). Hình minh họa:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/vk6qpo5jo9_image.png" alt="alt text"></p>
+<h3>Mutiple color stops</h3>
+<p>Mutiple color stops nôm na là điểm dừng của một màu trong một đống màu mà chúng ta đã cho và từ đó nó sẽ bắt đầu chuyển hóa thành màu khác bằng việc đặt %(tức khoảng muốn kết thúc vào cuối màu đó, như thế này<code>background: linear-gradient(color %điểm dừng, color %điểm dừng, color %điểm dừng;</code>).
+Ví dụ:
+Đây là 3 màu được cho và với điểm dừng là bằng nhau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/yafckqpwcu_image.png" alt="alt text">
+Sau khi ta thay đổi điểm dừng lại một tí như sau <code>background:linear-gradient(to right,red 60%, yellow 70%, blue 90%);</code>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/28h9319gbq_image.png" alt="alt text">
+Rõ ràng là đã thấy được sự chênh lệch nhẹ :v</p>
+<h3>Repeating a linear-gradient</h3>
+<p>Cách giải thích tốt nhất là xem ví dụ <i class='em em-laughing'></i>
+Đây là một <strong>Gradient</strong> bình thường:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ystqe5dkki_image.png" alt="alt text">
+Sau khi sử dụng <code>repeating-linear-gradient</code>:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nd1p7faryx_image.png" alt="alt text">
+Tada!!! (mù mắt <i class='em em-laughing'></i>)
+Việc repeat này dựa vào cái <strong>multiple color stops</strong> ở trên, nếu chúng ta cho việc dừng lại của từng màu trong background ở khoảng cách nhỏ thì sẽ tạo thành đoạn nhỏ và nó sẽ còn dư khoảng trống rất nhiều + với <code>repeating-linear-gradient</code> sẽ khiến cho các đoạn nhỏ đó lặp lại và ta được kết quả như hình trên. Dĩ nhiên nếu ta cho điểm dừng là quá lớn, như thế này
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/gpi4ytjpky_image.png" alt="alt text">
+Kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/gdlrie7v33_image.png" alt="alt text">
+Thì nó sẽ k lặp lại thành nhiều đoạn nhỏ được. Đáng lẽ ra phải là thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/auv6vzt9mq_image.png" alt="alt text">
+Và kết quả giống như ban nãy:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/1lij0fekap_image.png" alt="alt text"></p>
+<h2>CSS Radial Gradients</h2>
+<p>Phần này thì cũng tương tự như <strong>linear gradient</strong> thay vì trải từ bên này sang bên kia thì nó sẽ là trải từ trung tâm ra ngoài theo “hình tròn”.
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/qt3zmjej5w_image.png" alt="alt text">
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nqgnwpmixa_image.png" alt="alt text"></p>
+<p>Nhưng gì chúng ta biết về <code>linear-gradient</code> thì bên <code>radial-gradient</code> cũng tương tự, chỉ là khác chút ít.  Như là việc <strong>color stops</strong> ở trên
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/jscztojdqx_image.png" alt="alt text">
+Kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nlk1upgqvj_image.png" alt="alt text"></p>
+<p>Hay là <code>repeating</code>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/9q2k7zsedo_image.png" alt="alt text">
+Kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/pglqy1g4cq_image.png" alt="alt text">
+(Nhìn ma thuật thế <i class='em em-laughing'></i>)
+Chỉ có một thứ khác với <code>linear-gradient</code> đó là <code>radial-gradient</code> có hai hình dạng đó là <code>circle</code> và <code>ellipse</code>. (Hình dạng tỏa từ trung tâm theo hình vòng ra ngoài)</p>
+<ul>
+<li>Cirle: sẽ được biểu diễn như sau <code>background: radial-gradient(circle, red, yellow, green);</code>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/sfs3l6janr_image.png" alt="alt text"></li>
+<li>Ellipse: <code>background: radial-gradient( red, yellow, green);</code> đây là kiểu mặc định nên ta không cần ghi gì thêm
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/exzbyoy4fq_image.png" alt="alt text"></li>
+</ul>
+<p>Về việc sử dụng các <strong>Gradient</strong> này thì minh hay sử dụng nó làm các background cho phần branding ở header hay một số background cho content trông đẹp hơn. Ví dụ, thay vì bình thường mình hay để branding là một màu (xám chẳng hạn) với cú pháp như này
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/unstkszcu0_image.png" alt="alt text">
+Thì đây là cái branding của mình:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/rb23h0pi6j_image.png" alt="alt text">
+Nhưng sau khi thay đổi một tí
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/c2ojwukqfz_image.png" alt="alt text">
+Nhìn trông cool hơn <i class='em em-laughing'></i>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/273f4qf2rp_image.png" alt="alt text">
+Chúng ta hoàn toàn có thể sáng tạo để tạo ra các kiểu background khác trông ngầu và đẹp hơn, có thể là như này :3
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/lnn7tmasvp_image.png" alt="alt text">
+Code:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/khestihk3y_image.png" alt="alt text">
+hay ảo diệu như này
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/8x5ssd73xe_image.png" alt="alt text">
+Code:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/fl33in7li5_image.png" alt="alt text"></p>
+<h2>Link tham khảo</h2>
+<p>Mình tham khảo <a href="https://www.w3schools.com/css/css3_gradients.asp">Ở đây</a></p>
 
-        <h3>Mutiple color stops</h3>
-        <p>
-          Mutiple color stops nôm na là điểm dừng của một màu trong một đống màu
-          mà chúng ta đã cho và từ đó nó sẽ bắt đầu chuyển hóa thành màu khác
-          bằng việc đặt %(tức khoảng muốn kết thúc vào cuối màu đó, như thế
-          này<code
-            >background: linear-gradient(color %điểm dừng, color %điểm dừng,
-            color %điểm dừng;</code
-          >). Ví dụ: Đây là 3 màu được cho và với điểm dừng là bằng nhau:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/yafckqpwcu_image.png"
-            alt="alt text"
-          />
-          Sau khi ta thay đổi điểm dừng lại một tí như sau
-          <code
-            >background:linear-gradient(to right,red 60%, yellow 70%, blue
-            90%);</code
-          >
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/28h9319gbq_image.png"
-            alt="alt text"
-          />
-          Rõ ràng là đã thấy được sự chênh lệch nhẹ :v
-        </p>
-        <h3>Repeating a linear-gradient</h3>
-        <p>
-          Cách giải thích tốt nhất là xem ví dụ
-          <i class="em em-laughing"></i> Đây là một
-          <strong>Gradient</strong> bình thường:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ystqe5dkki_image.png"
-            alt="alt text"
-          />
-          Sau khi sử dụng <code>repeating-linear-gradient</code>:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nd1p7faryx_image.png"
-            alt="alt text"
-          />
-          Tada!!! (mù mắt <i class="em em-laughing"></i>) Việc repeat này dựa
-          vào cái <strong>multiple color stops</strong> ở trên, nếu chúng ta cho
-          việc dừng lại của từng màu trong background ở khoảng cách nhỏ thì sẽ
-          tạo thành đoạn nhỏ và nó sẽ còn dư khoảng trống rất nhiều + với
-          <code>repeating-linear-gradient</code> sẽ khiến cho các đoạn nhỏ đó
-          lặp lại và ta được kết quả như hình trên. Dĩ nhiên nếu ta cho điểm
-          dừng là quá lớn, như thế này
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/gpi4ytjpky_image.png"
-            alt="alt text"
-          />
-          Kết quả:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/gdlrie7v33_image.png"
-            alt="alt text"
-          />
-          Thì nó sẽ k lặp lại thành nhiều đoạn nhỏ được. Đáng lẽ ra phải là thế
-          này:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/auv6vzt9mq_image.png"
-            alt="alt text"
-          />
-          Và kết quả giống như ban nãy:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/1lij0fekap_image.png"
-            alt="alt text"
-          />
-        </p>
-
-        <h2>CSS Radial Gradients</h2>
-        <p>
-          Phần này thì cũng tương tự như <strong>linear gradient</strong> thay
-          vì trải từ bên này sang bên kia thì nó sẽ là trải từ trung tâm ra
-          ngoài theo “hình tròn”.
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/qt3zmjej5w_image.png"
-            alt="alt text"
-          />
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nqgnwpmixa_image.png"
-            alt="alt text"
-          />
-        </p>
-
-        <p>
-          Nhưng gì chúng ta biết về <code>linear-gradient</code> thì bên
-          <code>radial-gradient</code> cũng tương tự, chỉ là khác chút ít. Như
-          là việc <strong>color stops</strong> ở trên
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/jscztojdqx_image.png"
-            alt="alt text"
-          />
-          Kết quả:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/nlk1upgqvj_image.png"
-            alt="alt text"
-          />
-        </p>
-
-        <p>
-          Hay là <code>repeating</code>
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/9q2k7zsedo_image.png"
-            alt="alt text"
-          />
-          Kết quả:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/pglqy1g4cq_image.png"
-            alt="alt text"
-          />
-          (Nhìn ma thuật thế <i class="em em-laughing"></i>) Chỉ có một thứ khác
-          với <code>linear-gradient</code> đó là <code>radial-gradient</code> có
-          hai hình dạng đó là <code>circle</code> và <code>ellipse</code>. (Hình
-          dạng tỏa từ trung tâm theo hình vòng ra ngoài)
-        </p>
-        <ul>
-          <li>
-            Cirle: sẽ được biểu diễn như sau
-            <code
-              >background: radial-gradient(circle, red, yellow, green);</code
-            >
-            <img
-              src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/sfs3l6janr_image.png"
-              alt="alt text"
-            />
-          </li>
-
-          <li>
-            Ellipse:
-            <code>background: radial-gradient( red, yellow, green);</code> đây
-            là kiểu mặc định nên ta không cần ghi gì thêm
-            <img
-              src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/exzbyoy4fq_image.png"
-              alt="alt text"
-            />
-          </li>
-        </ul>
-        <p>
-          Về việc sử dụng các <strong>Gradient</strong> này thì minh hay sử dụng
-          nó làm các background cho phần branding ở header hay một số background
-          cho content trông đẹp hơn. Ví dụ, thay vì bình thường mình hay để
-          branding là một màu (xám chẳng hạn) với cú pháp như này
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/unstkszcu0_image.png"
-            alt="alt text"
-          />
-          Thì đây là cái branding của mình:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/rb23h0pi6j_image.png"
-            alt="alt text"
-          />
-          Nhưng sau khi thay đổi một tí
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/c2ojwukqfz_image.png"
-            alt="alt text"
-          />
-          Nhìn trông cool hơn <i class="em em-laughing"></i>
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/273f4qf2rp_image.png"
-            alt="alt text"
-          />
-          Chúng ta hoàn toàn có thể sáng tạo để tạo ra các kiểu background khác
-          trông ngầu và đẹp hơn, có thể là như này :3
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/lnn7tmasvp_image.png"
-            alt="alt text"
-          />
-          Code:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/khestihk3y_image.png"
-            alt="alt text"
-          />
-          hay ảo diệu như này
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/8x5ssd73xe_image.png"
-            alt="alt text"
-          />
-          Code:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/fl33in7li5_image.png"
-            alt="alt text"
-          />
-        </p>
-
-        <h2>Link tham khảo</h2>
-        <p>
-          Mình tham khảo
-          <a href="https://www.w3schools.com/css/css3_gradients.asp">Ở đây</a>
-        </p>
       </div>
 
       <div class="blog-tags-zone">
         <p class="tag-label">Tags:</p>
         <ul class="blog-tags">
-          <li>
-            <a
-              class="tag"
-              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/coding.html"
-              >coding</a
-            >
-          </li>
-
-          <li>
-            <a
-              class="tag"
-              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/css.html"
-              >css</a
-            >
-          </li>
+          
+      <li>
+        <a class="tag" href="../tag/html/css.html">css</a>
+      </li>
+      
         </ul>
       </div>
     </div>
@@ -349,3 +162,4 @@
     }
   </script>
 </html>
+    

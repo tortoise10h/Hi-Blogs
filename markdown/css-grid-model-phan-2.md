@@ -108,8 +108,5 @@ Kết quả:
 ## link tham khảo
 * [W3School](https://www.w3schools.com/css/css_grid_item.asp)
 * [CSS-tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-
-
-HyHy 08-08-2018
 <<<<<Blog-Meta-Data>>>>>
-title:CSS Grid module layout: items (Phần 2);publishMode:publish;tags:css;date:2018/09/14 00:00:00;
+title:CSS Grid model phần 2;publishMode:publish;tags:css;date:2018/10/13 00:00:00;

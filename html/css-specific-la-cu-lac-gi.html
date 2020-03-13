@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>CSS specificity là củ lạc gì? | Hi's blog</title>
+    <title>CSS specific là củ lạc gì? | Hi's blog</title>
     <link
       rel="icon"
       type="image/icon"
@@ -16,313 +17,104 @@
 
   <body>
     <div class="blog-logo">
-      <a href="https://tortoise10h.github.io/Hi-Blogs/index.html"
-        ><img
-          src="../img/engine-img/shiba-with-glasses.jpg"
-          alt="Blog Logo Image"
+      <a href="https:/tortoise10h.github.io/Hi-Blogs/index.html"
+        ><img src="../img/engine-img/shiba-with-glasses.jpg" alt="Blog Logo Image"
       /></a>
     </div>
     <div class="container">
       <div class="blog-header">
-        <h1 class="blog-title">CSS specificity là củ lạc gì?</h1>
+        <h1 class="blog-title">CSS specific là củ lạc gì?</h1>
         <div class="date-and-min-read">
           <p class="blog-date">
-            &#x1F550; Saturday, August 18th 2018
+            &#x1F550; Saturday, August 25th 2018
           </p>
           <p class="min-read" id="readingTime"></p>
         </div>
       </div>
       <div class="main-content" id="mainContent">
-        <p>
-          Chúng ta sẽ đi tới một ví dụ để có thể dễ dàng hình dung hơn. Giả sử
-          chúng ta có đoạn code sau đây:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/y8h2jw8nyi_image.png"
-            alt="alt text"
-          />
-          Ở đoạn code trên, phần xét <code>background-color</code> cho element
-          <code>h1</code> đã cùng lúc bị xét 2 lần ở cả <code>h1</code> với
-          <code>background-color</code> là màu cam và class
-          <code>content</code> với <code>background-color</code> là xanh và cùng
-          xem chuyện gì xảy ra tiếp theo
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/sycq1mugu2_image.png"
-            alt="alt text"
-          />
-          Xin lỗi nhưng <i class="em em-laughing"></i>
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5yse1eujwd_image.png"
-            alt="alt text"
-          />
-          Vậy những gì đã xảy ra ở trên đã cho ta thấy
-          <strong>Specificity</strong> là như thế nào. Nếu có 2 hoặc nhiều hơn
-          “CSS rules” (mình chưa biết gọi trong tiếng việt sao cho ngầu cả
-          <i class="em em-laughing"></i>) cùng nhắm vào một thằng element thì
-          khi đó trình duyệt sẽ tuần theo một nguyên tắc và xem trong đống CSS
-          rules kia thằng nào xứng đáng nhất để chọn ra và apply vào element, đó
-          là cách giải thích <strong>specificity</strong> đơn giản mà mình biết.
-          Ban đầu mình cũng đã lầm tưởng là nó sẽ chuyển sang màu cam vì mình
-          vẫn nghĩ thằng <code>h1</code> gần với <code>body</code> hơn nên CSS
-          của nó sẽ được apply, nhưng lại
-          <strong>hoàn toàn không phải</strong> (đôi khi mình gần cô gái mình
-          yêu hơn thằng khác nhưng nó giàu hơn nên thế là
-          <i class="em em-sob"></i>). Để dễ dàng hơn chúng ta hãy tưởng tượng
-          <strong>specificity</strong> như là một bảng xếp hạng mà trong đống
-          CSS rules thằng nào hạng cao hơn thì nó được apply vào element (như
-          kiểu chọn rể cho mị nương ấy :v).
-        </p>
-        <h2>Bảng xếp hạng Specificity</h2>
-        <p>
-          Để giải thích trường hợp ở trên
-          <em
-            >&quot;đôi khi mình gần cô gái mình yêu hơn thằng khác nhưng nó giàu
-            hơn nên thế là <i class="em em-sob"></i>&quot;</em
-          >, thực ra là cái này
-          <em
-            >&quot; Nếu có 2 hoặc nhiều hơn CSS rules cùng nhắm vào một thằng
-            element thì khi đó trình duyệt sẽ tuần theo một nguyên tắc và xem
-            trong đống CSS rules kia thằng nào xứng đáng nhất để chọn ra và
-            apply vào element&quot;</em
-          >. Ở đây chúng ta sẽ có bảng xếp hạng cho CSS rule để trình duyệt tuân
-          theo khi apply CSS, theo thứ tự từ trên xuống dưới.
-        </p>
-        <ul>
-          <li>
-            <strong>inline-style</strong>: Đây là lúc mà chúng ta style cho
-            element mà ta muốn vào thằng dòng đó như thế này
-            <img
-              src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/b0wss1m05a_image.png"
-              alt="alt text"
-            />
-            thì nó sẽ apply vào element đó theo những gì mà chúng ta đã style
-            trên dòng đó và mặc kệ nó bên file CSS hay trên phần
-            <code>style</code> ở <code>head</code> chúng ta đã quy định cho nó
-            như thế nào. Nó có thể xem là <strong>Đệ nhất</strong> (bỏ qua
-            trường hợp của <code>!important</code> chúng ta sẽ nói sau)
-          </li>
-          <li>
-            <strong>ID</strong>: tiếp sau <strong>Đệ nhất</strong> thì sẽ là
-            <strong>Đệ nhị</strong> ID, nếu không có
-            <strong>inline-style</strong> thì khi cả class, style cho element,
-            vân vân mây mây đều trỏ chung vào element mà ID đó đang trỏ thì đều
-            bại dưới tay ID hết.
-          </li>
-          <li>
-            <strong>Class, attributes và pseudo-classes</strong>: Tiếp theo ID ở
-            trên chúng ta sẽ có nhóm <strong>Đệ tam</strong> bao gồm: class,
-            thuộc tính ([attribute nào đó]) và các pseudo-classes như
-            <code>:hover</code>, <code>:focus</code>, etc
-          </li>
-          <li>
-            <strong>Elemen và pseudo-elements</strong>: Cuối cùng là nhóm em út
-            gồm: các element như <code>h1</code> <code>li</code>,… và các
-            pseudo-elements như <code>::before</code>, <code>::after</code>, etc
-          </li>
-        </ul>
-        <p>
-          Và đó là bảng thứ tự mà trình duyệt dựa vào khi gặp nhiều CSS rules
-          trỏ vào một element hoặc ta có thể xem hình sau để dễ mường tượng hơn
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/pw01w8t5hy_image.png"
-            alt="alt text"
-          />
-          (hình *) (<em>ảnh này là của CSS tricks mình sẽ để link ở cuối bài</em
-          >)
-        </p>
-        <h2>Tính toán giá trị của CSS specificity</h2>
-        <p>
-          Tính toán giá trị của CSS specificity để biết được cái nào là được
-          apply vào element để chúng ta không bị mắc lỗi khi viết CSS xong lại
-          hét lên <em>“Bố kêu mày màu xanh sao mày lại ra màu đỏ”</em> chỉ vì lí
-          do chúng ta viết thằng màu xanh có giá trị Specificity thấp hơn thằng
-          màu đỏ. Ta có đoạn code sau:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/3jx3tlud39_image.png"
-            alt="alt text"
-          />
-          Dựa vào bảng thứ tự ở trên (hình *) giá trị
-          <strong>specicficity</strong> được tính như sau:
-        </p>
-        <ul>
-          <li>
-            <strong>Inline-style</strong>: ở đây ta có một
-            <strong>inline-style</strong> đó là
-            <code>background-color:#1abc9c</code> cho nên điểm của nó sẽ là
-            1,0,0,0 (hay 1000)
-          </li>
-          <li>
-            <strong>ID</strong>: chúng ta có 1 ID <code>content</code> tuy nhiên
-            nó có thêm một element <code>h1</code> phía sau cho nên điểm của nó
-            sẽ là 0,1,0,1 (hay 101)
-          </li>
-          <li>
-            <strong>Element</strong>: Ta có một element <code>h1</code> tương
-            ứng với điểm 0,0,0,1 (hay 1) không tính <code>h1</code> ở trên bởi
-            vì nó thuộc về ID <code>content</code>
-          </li>
-        </ul>
-        <p>
-          Vậy, theo như ta thấy 1 &lt; 101 &lt; 1000 cho nên rõ ràng là CSS
-          <code>background-color:#1abc9c</code> của
-          <strong>inline-style</strong> sẽ được áp dụng (quá đơn giản đúng không
-          nào <i class="em em-laughing"></i>)
-        </p>
-        <h2>Một số đạo luật trong CSS</h2>
-        <h3>Equal specificity: the latest rule counts</h3>
-        <p>
-          Equal specificity: the latest rule counts (hay thuần việt tí là “Nếu
-          hai thằng có giá trị specificity bằng nhau, thằng nào viết sau thằng
-          đó được apply”) Trường hợp ta có hai CSS rules có hạng ngang nhau như
-          thế này:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ib6tftqol6_image.png"
-            alt="alt text"
-          />
-          rõ ràng là giá trị specificity của nó là như nhau (đều là element
-          <code>h1</code>) lúc này chúng ta sẽ theo luật
-          <em>“thằng nào gần hơn thằng đó thắng”</em>. Cho nên kết quả hiển
-          nhiên là
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/hvzq2hb1lm_image.png"
-            alt="alt text"
-          />
-          Nếu đảo ngược lại
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/m8fwh0p00u_image.png"
-            alt="alt text"
-          />
-          Thì sẽ được như này:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/bog84cujph_image.png"
-            alt="alt text"
-          />
-        </p>
+        <p>Chúng ta sẽ đi tới một ví dụ để có thể dễ dàng hình dung hơn. Giả sử chúng ta có đoạn code sau đây:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/y8h2jw8nyi_image.png" alt="alt text">
+Ở đoạn code trên, phần xét <code>background-color</code> cho element <code>h1</code> đã cùng lúc bị xét 2 lần ở cả <code>h1</code> với <code>background-color</code> là màu cam và class <code>content</code> với <code>background-color</code> là xanh và cùng xem chuyện gì xảy ra tiếp theo
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/sycq1mugu2_image.png" alt="alt text">
+Xin lỗi nhưng <i class='em em-laughing'></i>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/5yse1eujwd_image.png" alt="alt text">
+Vậy những gì đã xảy ra ở trên đã cho ta thấy <strong>Specificity</strong> là như thế nào. Nếu có 2 hoặc nhiều hơn “CSS rules” (mình chưa biết gọi trong tiếng việt sao cho ngầu cả <i class='em em-laughing'></i>)  cùng nhắm vào một thằng element thì khi đó trình duyệt sẽ tuần theo một nguyên tắc và xem trong đống CSS rules kia thằng nào xứng đáng nhất để chọn ra và apply vào element, đó là cách giải thích <strong>specificity</strong> đơn giản mà mình biết. Ban đầu mình cũng đã lầm tưởng là nó sẽ chuyển sang màu cam vì mình vẫn nghĩ thằng <code>h1</code> gần với <code>body</code> hơn nên CSS của nó sẽ được apply, nhưng lại <strong>hoàn toàn không phải</strong> (đôi khi mình gần cô gái mình yêu hơn thằng khác nhưng nó giàu hơn nên thế là <i class='em em-sob'></i>). Để dễ dàng hơn chúng ta hãy tưởng tượng <strong>specificity</strong> như là một bảng xếp hạng mà trong đống CSS rules thằng nào hạng cao hơn thì nó được apply vào element (như kiểu chọn rể cho mị nương ấy :v).</p>
+<h2>Bảng xếp hạng Specificity</h2>
+<p>Để giải thích trường hợp ở trên <em>&quot;đôi khi mình gần cô gái mình yêu hơn thằng khác nhưng nó giàu hơn nên thế là <i class='em em-sob'></i>&quot;</em>, thực ra là cái này <em>&quot; Nếu có 2 hoặc nhiều hơn CSS rules cùng nhắm vào một thằng element thì khi đó trình duyệt sẽ tuần theo một nguyên tắc và xem trong đống CSS rules kia thằng nào xứng đáng nhất để chọn ra và apply vào element&quot;</em>. Ở đây chúng ta sẽ có bảng xếp hạng cho CSS rule để trình duyệt tuân theo khi apply CSS, theo thứ tự từ trên xuống dưới.</p>
+<ul>
+<li><strong>inline-style</strong>: Đây là lúc mà chúng ta style cho element mà ta muốn vào thằng dòng đó như thế này
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/b0wss1m05a_image.png" alt="alt text">  thì nó sẽ apply vào element đó theo những gì mà chúng ta đã style trên dòng đó và mặc kệ nó bên file CSS hay trên phần <code>style</code> ở <code>head</code> chúng ta đã quy định cho nó như thế nào. Nó có thể xem là <strong>Đệ nhất</strong> (bỏ qua trường hợp của <code>!important</code> chúng ta sẽ nói sau)</li>
+<li><strong>ID</strong>: tiếp sau <strong>Đệ nhất</strong> thì sẽ là <strong>Đệ nhị</strong> ID, nếu không có <strong>inline-style</strong> thì khi cả class, style cho element, vân vân mây mây đều trỏ chung vào element mà ID đó đang trỏ thì đều bại dưới tay ID hết.</li>
+<li><strong>Class,  attributes và pseudo-classes</strong>: Tiếp theo ID ở trên chúng ta sẽ có nhóm <strong>Đệ tam</strong> bao gồm: class, thuộc tính ([attribute nào đó]) và các pseudo-classes như <code>:hover</code>, <code>:focus</code>, etc</li>
+<li><strong>Elemen và pseudo-elements</strong>: Cuối cùng là nhóm em út gồm: các element như <code>h1</code> <code>li</code>,… và các pseudo-elements như <code>::before</code>, <code>::after</code>, etc</li>
+</ul>
+<p>Và đó là bảng thứ tự mà trình duyệt dựa vào khi gặp nhiều CSS rules trỏ vào một element hoặc ta có thể xem hình sau để dễ mường tượng hơn
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/pw01w8t5hy_image.png" alt="alt text">
+(hình *)
+(<em>ảnh này là của CSS tricks mình sẽ để link ở cuối bài</em>)</p>
+<h2>Tính toán giá trị của CSS specificity</h2>
+<p>Tính toán giá trị của CSS specificity để biết được cái nào là được apply vào element để chúng ta không bị mắc lỗi khi viết CSS xong lại hét lên <em>“Bố kêu mày màu xanh sao mày lại ra màu đỏ”</em> chỉ vì lí do chúng ta viết thằng màu xanh có giá trị Specificity thấp hơn thằng màu đỏ.
+Ta có đoạn code sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/3jx3tlud39_image.png" alt="alt text">
+Dựa vào bảng thứ tự ở trên (hình *) giá trị <strong>specicficity</strong> được tính như sau:</p>
+<ul>
+<li><strong>Inline-style</strong>: ở đây ta có một <strong>inline-style</strong> đó là <code>background-color:#1abc9c</code> cho nên điểm của nó sẽ là 1,0,0,0 (hay 1000)</li>
+<li><strong>ID</strong>: chúng ta có 1 ID <code>content</code> tuy nhiên nó có thêm một element <code>h1</code> phía sau cho nên điểm của nó sẽ là 0,1,0,1 (hay 101)</li>
+<li><strong>Element</strong>: Ta có một element <code>h1</code> tương ứng với điểm 0,0,0,1 (hay 1) không tính <code>h1</code> ở trên bởi vì nó thuộc về ID <code>content</code></li>
+</ul>
+<p>Vậy, theo như ta thấy 1 &lt; 101 &lt; 1000 cho nên rõ ràng là CSS <code>background-color:#1abc9c</code> của <strong>inline-style</strong> sẽ được áp dụng (quá đơn giản đúng không nào <i class='em em-laughing'></i>)</p>
+<h2>Một số đạo luật trong CSS</h2>
+<h3>Equal specificity: the latest rule counts</h3>
+<p>Equal specificity: the latest rule counts (hay thuần việt tí là “Nếu hai thằng có giá trị specificity bằng nhau, thằng nào viết sau thằng đó được apply”)
+Trường hợp ta có hai CSS rules có hạng ngang nhau như thế này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ib6tftqol6_image.png" alt="alt text"> rõ ràng là giá trị specificity của nó là như nhau (đều là element <code>h1</code>) lúc này chúng ta sẽ theo luật <em>“thằng nào gần hơn thằng đó thắng”</em>. Cho nên kết quả hiển nhiên là
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/hvzq2hb1lm_image.png" alt="alt text">
+Nếu đảo ngược lại
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/m8fwh0p00u_image.png" alt="alt text">
+Thì sẽ được như này:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/bog84cujph_image.png" alt="alt text"></p>
+<h3>ID selectors have a higher specificity than attribute selectors</h3>
+<p>ID selectors have a higher specificity than attribute selectors: ID selector thì sẽ có giá trị specificity cao hơn so với attribute selector. Ví dụ:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/isyodl9nn8_image.png" alt="alt text"> Và như đã nói, ID selector là kẻ dành chiến thắng
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/d24if98gtp_image.png" alt="alt text"></p>
+<h3>As specific as it makes sense to be</h3>
+<p>As specific as it makes sense to be: Càng cụ thể càng tốt. Để dễ dàng hiểu rõ ta nhìn ví dụ dưới đây:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/s5s0u27ygx_image.png" alt="alt text">
+Bạn có 1 đống code như trên với mục đích là in ra mấy cái link và xét <code>background-color</code> cho nó là đỏ.
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/satt8swhte_image.png" alt="alt text">
+Tuy nhiên link 1 là link bạn yêu thích vì nó chứa <em>“tư liệu học tập”</em> nên bạn sẽ cho nó qua một màu khác để dễ nhận biết. Bạn lập tức vào chỉnh sửa một tí với suy nghĩ trong đầu là nó sẽ sang màu khác để lần sau tìm link <em>“học tập”</em> dễ dàng hơn.
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/eux2mwhtxe_image.png" alt="alt text">
+tuy nhiên, nó vẫn là 3 link đỏ lòe không thay đổi, bởi vì rõ ràng là tính ra thằng ID là <strong>đệ nhị</strong> quyền lực nó vẫn cao hơn thằng class bạn cử ra chỉ là <strong>đệ tam</strong>. Cho nên ta mới nói <em>“càng cụ thể càng tốt”</em>, nếu chúng ta sửa lại như thế này
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/xa55r62jg_image.png" alt="alt text">
+Thì kết quả sẽ trở nên viên mãn hơn, bởi vì nó cụ thể hơn việc chỉ ghi mỗi thằng class <code>special</code> và quăng vào trong cái <code>li</code> kia.
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6o6d9bijl7_image.png" alt="alt text"></p>
+<h2>!Important</h2>
+<p>Như đã nói lúc phân cấp cho <strong>Inline-style</strong> thì trên nó vẫn có thằng có quyền lực cao hơn đó là <strong>!important</strong> (cao nhân ắt có cao nhân trị). Nếu bạn chỉ dùng một con tốt thí element có giá trị là Specificity là 1 và trên đó là một đống class, ID, etc cùng với <strong>inline-style</strong>
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/rzp9ez4kvw_image.png" alt="alt text">
+Thì phần thắng rõ ràng thuộc về <strong>inline-style</strong> dựa theo vị trí bảng xếp hạng
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/e4ntg4badc_image.png" alt="alt text">
+Nhưng khi đặt <strong>!important</strong> vào thì con tốt thí đó cũng sẽ hóa chaos
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/uxclepdvf0_image.png" alt="alt text">
+Kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ujqbqybh51_image.png" alt="alt text">
+Nhìn qua thì thấy <strong>!important</strong> quá là quyền năng đúng không nào, tuy nhiên cũng vì lí do đó nên là nó rất dễ bị lạm dụng nếu không hiểu rõ về nó. Vậy nên chúng ta cần tìm hiểu rõ về <strong>!important</strong> để không bị rơi vào tình trạng lạm dụng nó và giúp code CSS chúng ta sạch sẽ hơn.
+##Link bài tham khảo
+Mình tham khảo tại:</p>
+<ul>
+<li>W3School <a href="https://www.w3schools.com/css/css_specificity.asp">ở đây</a></li>
+<li>CSS-tricks <a href="https://css-tricks.com/specifics-on-css-specificity/">ở đây</a></li>
+</ul>
 
-        <h3>ID selectors have a higher specificity than attribute selectors</h3>
-        <p>
-          ID selectors have a higher specificity than attribute selectors: ID
-          selector thì sẽ có giá trị specificity cao hơn so với attribute
-          selector. Ví dụ:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/isyodl9nn8_image.png"
-            alt="alt text"
-          />
-          Và như đã nói, ID selector là kẻ dành chiến thắng
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/d24if98gtp_image.png"
-            alt="alt text"
-          />
-        </p>
-
-        <h3>As specific as it makes sense to be</h3>
-        <p>
-          As specific as it makes sense to be: Càng cụ thể càng tốt. Để dễ dàng
-          hiểu rõ ta nhìn ví dụ dưới đây:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/s5s0u27ygx_image.png"
-            alt="alt text"
-          />
-          Bạn có 1 đống code như trên với mục đích là in ra mấy cái link và xét
-          <code>background-color</code> cho nó là đỏ.
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/satt8swhte_image.png"
-            alt="alt text"
-          />
-          Tuy nhiên link 1 là link bạn yêu thích vì nó chứa
-          <em>“tư liệu học tập”</em> nên bạn sẽ cho nó qua một màu khác để dễ
-          nhận biết. Bạn lập tức vào chỉnh sửa một tí với suy nghĩ trong đầu là
-          nó sẽ sang màu khác để lần sau tìm link <em>“học tập”</em> dễ dàng
-          hơn.
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/eux2mwhtxe_image.png"
-            alt="alt text"
-          />
-          tuy nhiên, nó vẫn là 3 link đỏ lòe không thay đổi, bởi vì rõ ràng là
-          tính ra thằng ID là <strong>đệ nhị</strong> quyền lực nó vẫn cao hơn
-          thằng class bạn cử ra chỉ là <strong>đệ tam</strong>. Cho nên ta mới
-          nói <em>“càng cụ thể càng tốt”</em>, nếu chúng ta sửa lại như thế này
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/xa55r62jg_image.png"
-            alt="alt text"
-          />
-          Thì kết quả sẽ trở nên viên mãn hơn, bởi vì nó cụ thể hơn việc chỉ ghi
-          mỗi thằng class <code>special</code> và quăng vào trong cái
-          <code>li</code> kia.
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/6o6d9bijl7_image.png"
-            alt="alt text"
-          />
-        </p>
-
-        <h2>!Important</h2>
-        <p>
-          Như đã nói lúc phân cấp cho <strong>Inline-style</strong> thì trên nó
-          vẫn có thằng có quyền lực cao hơn đó là
-          <strong>!important</strong> (cao nhân ắt có cao nhân trị). Nếu bạn chỉ
-          dùng một con tốt thí element có giá trị là Specificity là 1 và trên đó
-          là một đống class, ID, etc cùng với <strong>inline-style</strong>
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/rzp9ez4kvw_image.png"
-            alt="alt text"
-          />
-          Thì phần thắng rõ ràng thuộc về <strong>inline-style</strong> dựa theo
-          vị trí bảng xếp hạng
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/e4ntg4badc_image.png"
-            alt="alt text"
-          />
-          Nhưng khi đặt <strong>!important</strong> vào thì con tốt thí đó cũng
-          sẽ hóa chaos
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/uxclepdvf0_image.png"
-            alt="alt text"
-          />
-          Kết quả:
-          <img
-            src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ujqbqybh51_image.png"
-            alt="alt text"
-          />
-          Nhìn qua thì thấy <strong>!important</strong> quá là quyền năng đúng
-          không nào, tuy nhiên cũng vì lí do đó nên là nó rất dễ bị lạm dụng nếu
-          không hiểu rõ về nó. Vậy nên chúng ta cần tìm hiểu rõ về
-          <strong>!important</strong> để không bị rơi vào tình trạng lạm dụng nó
-          và giúp code CSS chúng ta sạch sẽ hơn. ##Link bài tham khảo Mình tham
-          khảo tại:
-        </p>
-        <ul>
-          <li>
-            W3School
-            <a href="https://www.w3schools.com/css/css_specificity.asp"
-              >ở đây</a
-            >
-          </li>
-          <li>
-            CSS-tricks
-            <a href="https://css-tricks.com/specifics-on-css-specificity/"
-              >ở đây</a
-            >
-          </li>
-        </ul>
       </div>
 
       <div class="blog-tags-zone">
         <p class="tag-label">Tags:</p>
         <ul class="blog-tags">
-          <li>
-            <a
-              class="tag"
-              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/coding.html"
-              >coding</a
-            >
-          </li>
-
-          <li>
-            <a
-              class="tag"
-              href="https://tortoise10h.github.io/Hi-Blogs/tag/html/css.html"
-              >css</a
-            >
-          </li>
+          
+      <li>
+        <a class="tag" href="../tag/html/css.html">css</a>
+      </li>
+      
         </ul>
       </div>
     </div>
@@ -361,3 +153,4 @@
     }
   </script>
 </html>
+    

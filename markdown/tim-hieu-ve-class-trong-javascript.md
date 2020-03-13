@@ -282,8 +282,5 @@ Ok đó là sương sương về class trong `Javascript` nhé, nếu bạn mu�
 * Search google thêm
 * Xem chi tiết ở link mà mình tham khảo tại [đây](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-
-Hi, 20-12-2019
-
 <<<<<Blog-Meta-Data>>>>>
-title:Tìm hiểu về class trong Javascript;publishMode:publish;tags:coding,javascript;date:2019/12/21 00:00:00;
+title:Tìm hiểu về class trong Javascript;publishMode:publish;tags:javascript;date:2020/03/13 23:26:39;

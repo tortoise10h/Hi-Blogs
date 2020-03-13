@@ -170,7 +170,5 @@ Chưa được đẹp lắm, nhưng có vẻ cũng đúng được yêu cầu đ
 ## Link tham khảo
 Vì mình đang học HTML + CSS ở W3School nên link vẫn là [ở đây nha](https://www.w3schools.com/css/css_website_layout.asp)
 
-
-
 <<<<<Blog-Meta-Data>>>>>
-title:Tạo website layout cơ bản;publishMode:publish;tags:coding,html,css;date:2018/08/11 00:00:00;
+title:Tạo website layout cơ bản;publishMode:publish;tags:html,css;date:2018/08/10 00:00:00;

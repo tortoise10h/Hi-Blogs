@@ -81,4 +81,4 @@ Code:
 Mình tham khảo [Ở đây](https://www.w3schools.com/css/css3_gradients.asp)
 
 <<<<<Blog-Meta-Data>>>>>
-title:Tìm hiểu về CSS Gradient;publishMode:publish;tags:coding,css;date:2018/08/13 00:00:00;
+title:Tìm hiểu về CSS Gradient;publishMode:publish;tags:css;date:2018/08/18 00:00:00;

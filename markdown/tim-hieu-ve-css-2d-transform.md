@@ -61,4 +61,4 @@ Nơi mình tham khảo:
 * W3school [Ở đây](https://www.w3schools.com/css/css3_2dtransforms.asp)
 
 <<<<<Blog-Meta-Data>>>>>
-title:Tìm hiểu về CSS 2D transforms;publishMode:publish;tags:coding,css;date:2018/08/20 00:00:00;
+title:Tìm hiểu về CSS 2D transform;publishMode:publish;tags:css;date:2018/09/07 00:00:00;

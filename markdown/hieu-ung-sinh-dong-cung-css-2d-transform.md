@@ -41,8 +41,5 @@ Hoặc chúng ta có thể làm thêm một ví dụ khác sinh động hơn. Tr
 Mình tham khảo ở:
 * W3School [Ở đây](https://www.w3schools.com/css/css3_2dtransforms.asp)
 * The art of web [Đây nè](https://www.the-art-of-web.com/css/css-animation/)
-
-
-
 <<<<<Blog-Meta-Data>>>>>
-title:Hiệu ứng "sinh động" cùng CSS 2D transforms;publishMode:publish;tags:coding,css;date:2018/08/23 00:00:00;
+title:Hiệu ứng sinh động cùng CSS 2D transform;publishMode:publish;tags:css;date:2018/09/15 00:00:00;
