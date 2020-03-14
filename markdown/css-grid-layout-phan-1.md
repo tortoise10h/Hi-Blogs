@@ -148,5 +148,6 @@ Nếu như **align-items** là ngược lại của **justify-items** còn lại
 ## Link tham khảo
 * W3School [ở đây](https://www.w3schools.com/css/css_grid_container.asp)
 * CSS-tricks [ở đây](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
 <<<<<Blog-Meta-Data>>>>>
-title:CSS Grid model phần 1;publishMode:publish;tags:css;date:2018/10/05 00:00:00;
+title:CSS grid layout model phần 1;publishMode:publish;tags:TIL,css;date:2018/09/10 00:00:00;

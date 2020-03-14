@@ -64,5 +64,6 @@ Vậy là đã xong việc tạo nên một thanh tìm kiếm với hiệu ứng
 ## Link bài tham khảo
 Mình tham khảo tại W3school [ở đây nha](https://www.w3schools.com/css/css_form.asp)
 
+
 <<<<<Blog-Meta-Data>>>>>
-title:Tạo thanh tìm kiếm thò thụt cùng HTML và CSS;publishMode:publish;tags:html,css;date:2018/08/04 00:00:00;
+title:Tạo thanh tìm kiếm thò thụt cùng HTML & CSS;publishMode:publish;tags:TIL,html,css;date:2018/08/04 00:00:00;

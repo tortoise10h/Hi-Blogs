@@ -120,5 +120,6 @@ total = 300px + 30px + 30px + 10px + 10px + 20px + 20px = 420px.
 * Borders [Ở đây](https://www.w3schools.com/css/css_border.asp)
 * Margins [Ở đây](https://www.w3schools.com/css/css_margin.asp)
 * Box Model [Ở đây](https://www.w3schools.com/css/css_boxmodel.asp)
+
 <<<<<Blog-Meta-Data>>>>>
-title:Cấu trúc CSS Model;publishMode:publish;tags:css;date:2018/08/31 00:00:00;
+title:Cấu trúc CSS Box Model;publishMode:publish;tags:TIL,css;date:2018/08/11 00:00:00;

@@ -68,5 +68,6 @@ Mình tham khảo tại:
 * W3School [ở đây](https://www.w3schools.com/css/css_specificity.asp)
 * CSS-tricks [ở đây](https://css-tricks.com/specifics-on-css-specificity/)
 
+
 <<<<<Blog-Meta-Data>>>>>
-title:CSS specific là củ lạc gì?;publishMode:publish;tags:css;date:2018/08/25 00:00:00;
+title:CSS specific là củ lạc gì?;publishMode:publish;tags:TIL,css;date:2018/08/18 00:00:00;
