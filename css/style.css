@@ -68,30 +68,34 @@
 
 /* ===== FONTS ===== */
 @font-face {
-  font-family: "roboto-regular";
-  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-family: 'roboto-regular';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: "spacemono-regular";
-  src: url("../fonts/SpaceMono-Bold.ttf") format("truetype");
+  font-family: 'spacemono-regular';
+  src: url('../fonts/SpaceMono-Bold.ttf') format('truetype');
 }
 @font-face {
-  font-family: "roboto-italic";
-  src: url("../fonts/Roboto-Italic.ttf") format("truetype");
+  font-family: 'roboto-italic';
+  src: url('../fonts/Roboto-Italic.ttf') format('truetype');
 }
 @font-face {
-  font-family: "sourcecodepro-regular";
-  src: url("../fonts/SourceCodePro-Regular.ttf") format("truetype");
+  font-family: 'sourcecodepro-regular';
+  src: url('../fonts/SourceCodePro-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: "bevietnam-regular";
-  src: url("../fonts/BeVietnam-Regular.ttf") format("truetype");
+  font-family: 'bevietnam-regular';
+  src: url('../fonts/BeVietnam-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'notoserif-regular';
+  src: url('../fonts/NotoSerif-Regular.ttf') format('truetype');
 }
 
 /* ===== GLOBAL ===== */
 body {
   box-sizing: border-box;
-  font-family: "roboto", sans-serif;
+  font-family: 'roboto', sans-serif;
   counter-reset: secondHeader;
   padding: 0;
   margin: 0;
@@ -124,7 +128,7 @@ a:hover {
 }
 
 .clearfix::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
@@ -165,7 +169,7 @@ a:hover {
 
 .author-profile-credit {
   color: #666666;
-  font-family: "spacemono-regular";
+  font-family: 'spacemono-regular';
 }
 
 .author-profile-credit a {
@@ -173,7 +177,7 @@ a:hover {
 }
 
 .author-note {
-  font-family: "bevn-regular";
+  font-family: 'bevn-regular';
   color: #666666;
   line-height: 2;
 }
@@ -215,11 +219,11 @@ a:hover {
 
 .index-post h3 {
   font-size: 1.2em;
-  font-family: "roboto-regular";
+  font-family: 'roboto-regular';
 }
 
 .index-post h3::before {
-  content: "#";
+  content: '#';
   color: #adacac;
   margin-right: 0.3em;
 }
@@ -249,7 +253,7 @@ a:hover {
   border-left: 0.3em solid #17a2b8;
   background: #eaeaea;
   padding: 0.6em 1em;
-  font-family: "roboto-italic";
+  font-family: 'roboto-italic';
   color: #666565;
 }
 .main-content blockquote p {
@@ -274,7 +278,7 @@ a:hover {
   border-radius: 0.2em;
   font-size: 0.9em;
   padding: 0.2em 0.4em;
-  font-family: "sourcecodepro-regular";
+  font-family: 'sourcecodepro-regular';
 }
 
 .main-content img {
@@ -293,7 +297,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "spacemono-regular", monospace;
+  font-family: 'spacemono-regular', monospace;
   font-weight: 500;
   padding: 0;
   margin: 0;
@@ -315,31 +319,31 @@ h6 {
 
 /* Before custom */
 .main-content h2::before {
-  content: "#";
+  content: '#';
   display: inline-block;
   position: relative;
   left: -10px;
   color: #ccc;
-  font-family: "roboto-regular";
+  font-family: 'roboto-regular';
 }
 .main-content h3::before {
   counter-increment: thirdHeader;
-  content: counter(thirdHeader) ". ";
+  content: counter(thirdHeader) '. ';
   /* content: "\268A"; */
   display: inline-block;
   position: relative;
   left: -10px;
   color: #ccc;
-  font-family: "roboto-regular";
+  font-family: 'roboto-regular';
 }
 .main-content h4::before {
-  content: "\25CB";
+  content: '\25CB';
   display: inline-block;
   position: relative;
   margin-left: 0.3em;
   left: -10px;
   color: #ccc;
-  font-family: "roboto-regular";
+  font-family: 'roboto-regular';
 }
 
 .author-sign {
@@ -364,7 +368,7 @@ h6 {
 
 .tag {
   cursor: pointer;
-  font-family: "bevietnam-regular";
+  font-family: 'bevietnam-regular';
   transition: 0.2s;
   outline: none;
   background: #eaeaea;
@@ -373,8 +377,8 @@ h6 {
 }
 
 .tag::before {
-  content: "#";
-  color: "#17a28b";
+  content: '#';
+  color: '#17a28b';
 }
 
 .tag:hover {
@@ -414,7 +418,7 @@ h6 {
   margin-bottom: 1.5em;
 }
 .tag-header h1::before {
-  content: "#";
+  content: '#';
   margin-right: 0.3em;
   color: #cccccc;
 }
@@ -424,7 +428,7 @@ h6 {
 }
 
 .tag-table-content h3 {
-  font-family: "roboto-regular";
+  font-family: 'roboto-regular';
 }
 
 .tag-table-content h3 a {
@@ -461,7 +465,7 @@ h6 {
 }
 
 .tag-table-content h3::before {
-  content: "\268A";
+  content: '\268A';
   display: inline-block;
   margin-right: 0.3em;
   color: #ccc;
