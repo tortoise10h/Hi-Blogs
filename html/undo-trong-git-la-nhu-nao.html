@@ -84,6 +84,7 @@ git commit -m &quot;add more bugs to fix ._.&quot;
 <pre><code>git reset &lt;mode&gt; &lt;commit&gt;
 </code></pre>
 <p>Demo chút xíu xem sao. Ví dụ cho trường hợp mà bạn lỡ commit nhưng lại muốn undo nó chẳng hạn</p>
+<p><img src="../img/blog-img/testing-undo-commit.gif" alt="Undo git commit demo"></p>
 <p>Giải thích sơ bộ về cục ở trên nè:</p>
 <ul>
 <li><strong>mode</strong>: chúng ta sẽ có 3 mode chính (có hơn 3 mode, bạn có thể đọc thêm reference của git reset ở <a href="https://git-scm.com/docs/git-reset">đây</a>) là <code>--soft</code>, <code>--hard</code> và <code>--mixed</code> (riêng cái <code>--mixed</code> này là mode mặc định, tức nghĩa bạn có thể gõ luôn <code>git reset &lt;commit&gt;</code> mà không cần gõ mode <code>--mixed</code>)</li>
@@ -103,7 +104,40 @@ git commit -m &quot;add more bugs to fix ._.&quot;
 </blockquote>
 <p>Sau khi đã hiểu sơ sơ về cách hoạt động của việc undo commit theo cách này thì tiếp theo mình sẽ dắt bạn đi vào trong từng mode để xem nó tròn méo như thế nào, xem tiếp dưới đây nè.</p>
 <h3><code>--soft</code> mode</h3>
-<p>Đây là mode đầu tiên mà mình muốn nói đến cũng như là mode mà mình khuyên nên sử dụng vì độ an toàn của nó.</p>
+<p>Đây là mode đầu tiên mà mình muốn nói đến cũng như là mode mà mình khuyên nên sử dụng vì độ an toàn của nó. Trước khi giải thích các nó hoạt động như thế nào, thì có lẽ chúng nên ghé qua một ví dụ nhỏ để thấy sơ bộ trước.</p>
+<p>Thử nhìn xuống hình dưới và chú ý cho mình 2 commit mới nhất</p>
+<ul>
+<li>Một commit kế cuối là <strong>add file test-one &amp; test-two</strong>: ở đây mình sẽ tạo ra hai file markdown rỗng tên là <em>test-one</em> và <em>test-two</em> sau đó commit lên.</li>
+<li>Commit cuối là <strong>add text ‘hello world’ to test-one</strong>: commit này mình sẽ thêm một đoạn text là <em>hello world</em> vào file <em>test-one</em> và lại commit lên tiếp.</li>
+</ul>
+<p>Sau cùng đây là cây git của chúng ta sau 2 commit trên:
+<img src="../img/blog-img/reset-commit-soft-eg-1.png" alt="git reset --soft example 1"></p>
+<p>Tiếp theo, chúng ta sẽ thử chỉnh sửa một tí ở cả hai file <em>test-one</em> và <em>test-two</em></p>
+<ul>
+<li><strong>test-one</strong> mình sẽ đổi <em>hello world</em> -&gt; <em>hello universe</em> sau đó mình stage nó luôn</li>
+<li><strong>test-two</strong> mình sẽ thêm đoạn text <em>git is cool</em> vào</li>
+</ul>
+<p><img src="../img/blog-img/reset-commit-soft-eg-2.png" alt="git reset --soft example 1">
+<img src="../img/blog-img/reset-commit-soft-eg-4.png" alt="git reset --soft example 1">
+<img src="../img/blog-img/reset-commit-soft-eg-3.png" alt="git reset --soft example 1"></p>
+<p>Bây giờ mình sẽ giả vờ là mình đã thao tác sai cái khỉ gì đó và cần undo lại commit <strong>add file test-one &amp; test-two</strong> (tức quay lại commit lúc hai file này còn là file rỗng), vậy có làm được không? Đương nhiên là được, đã nói ở trên rồi còn gì. Rồi vậy làm như nào? Trước tiên là nhớ lại công thức lúc nãy xem chúng ta cần gõ gì rồi ráp vô (như làm toán vậy):</p>
+<pre><code>git reset &lt;mode&gt; &lt;commit&gt;
+</code></pre>
+<p>Ô kê, vì chúng ta đang thực hành với mode là <code>--soft</code> và cái commit id mà chúng ta cần quay lại là <code>9dd2e411</code>. Nhìn vào chỗ này nè:
+<img src="../img/blog-img/reset-commit-soft-eg-5.png" alt="git reset --soft example 1">
+Đây là thứ mà chúng ta cần gõ vào terminal:</p>
+<pre><code>git reset --soft 9dd2e411
+</code></pre>
+<p>Để xem xem, sau khi <code>enter</code> thì chúng ta có gì:
+<img src="../img/blog-img/reset-commit-soft-eg-6.png" alt="git reset --soft example 1">
+Như mong muốn, chúng ta đã undo ngược về commit <code>9dd2e411</code> thành công, bởi vì ta thấy HEAD của chúng ta giờ đã lùi lại dòng chữ <strong>add file test-one &amp; test-two</strong> trên git tree rồi chứ không còn ở chỗ cũ nữa. Tuy nhiên, tiếp theo là nhìn vào <code>git status</code>, trước khi chúng ta reset thì chúng ta có stage <strong>test-one</strong> vào staging area còn <strong>test-two</strong> thì không, sau reset xem ra staging area vẫn còn nguyên trạng thái cũ, vậy nó có thực sự là nguyên vẹn hay là không? Xem thử hình dưới nào:
+<img src="../img/blog-img/reset-commit-soft-eg-7.png" alt="git reset --soft example 1">
+<img src="../img/blog-img/reset-commit-soft-eg-8.png" alt="git reset --soft example 1"></p>
+<p>Có khác đấy, nếu như ở trước lúc chúng ta reset thì <strong>test-one</strong> của chúng ta thay đổi từ <em>hello world</em> -&gt; <em>hello universe</em> (kéo lên trên xem lại nào), nhưng bây giờ nhìn xem, nó đã đổi sang từ rỗng -&gt; <em>hello universe</em> các ông ạ (test-two thì không cần phải nói). Sau đây sẽ là màn giải thích cho vấn đề này.</p>
+<p>Khi chúng ta undo về một commit nào đó bằng <code>git reset --soft</code> (undo cách bao nhiêu commit cũng được) thì việc trước tiên nó sẽ làm đó là reset HEAD của chúng ta lùi về đúng với cái commit đó. Tuy nhiên với mode <code>--soft</code> thì nó không tác động đến những gì mà chúng ta thay đổi ở <strong>staging area</strong> và cả <strong>working tree</strong>, giống như trong trường hợp ở trên của chúng ta thì <strong>test-one</strong> được stage với <em>hello world</em> còn <strong>test-two</strong> thay đổi thành <em>git is cool</em> và không được thêm vào staging area, tất cả đều được giữ nguyên hết. Chỉ khác ở chỗ, thay vì trước khi reset, những thay đổi của chúng ta là từ commit <strong>add text ‘hello world’ to test-one</strong> thì sau khi reset nó sẽ là thay đổi từ commit <strong>add file test-one &amp; test-two</strong> sang. Thêm một điều nữa là nếu như ở commit mà chúng ta undo về có commit thay đổi của một file khác nữa (trong trường hợp này là khác 2 file <strong>test-one</strong> và <strong>test-two</strong>, như <strong>README</strong> chẳng hạn) thì thay đổi của file đó sẽ <strong>tự động được thêm vào staging area luôn</strong> (viết tới đây thì mới nhớ là quên ví setup cho ví dụ đó <i class="em em-lying_face" aria-role="presentation" aria-label="LYING FACE"></i>). Đây là định nghĩa của <code>--soft</code> trên <a href="https://git-scm.com/docs/git-reset">git doc</a>:</p>
+<blockquote>
+<p>Does not touch the index file or the working tree at all (but resets the head to <commit>, just like all modes do). This leaves all your changed files “Changes to be committed”, as git status would put it.</p>
+</blockquote>
 
       </div>
 

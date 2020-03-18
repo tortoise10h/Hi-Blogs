@@ -70,6 +70,8 @@ git reset <mode> <commit>
 ```
 Demo chút xíu xem sao. Ví dụ cho trường hợp mà bạn lỡ commit nhưng lại muốn undo nó chẳng hạn
 
+![Undo git commit demo](../img/blog-img/testing-undo-commit.gif)
+
 Giải thích sơ bộ về cục ở trên nè:
 * **mode**: chúng ta sẽ có 3 mode chính (có hơn 3 mode, bạn có thể đọc thêm reference của git reset ở [đây](https://git-scm.com/docs/git-reset)) là `--soft`, `--hard` và `--mixed` (riêng cái `--mixed` này là mode mặc định, tức nghĩa bạn có thể gõ luôn `git reset <commit>` mà không cần gõ mode `--mixed`)
 * **commit**: commit ở đây là commit id, bạn mở mấy cái app có visual git tree (như git Kraken hay plugin git graph trên VSCode thì sẽ thấy từng commit id của từng commit, vừa tiện vừa nhìn  cách mô phỏng cây git dễ hiểu) hay không muốn lằn nhằn thì gõ luôn `git log` và tìm commit mà mình muốn để lấy id (đọc log cũng hơi lằn nhằn đấy).
@@ -86,9 +88,43 @@ English version từ [nguồn](http://researchhubs.com/post/computing/git/what-i
 
 Sau khi đã hiểu sơ sơ về cách hoạt động của việc undo commit theo cách này thì tiếp theo mình sẽ dắt bạn đi vào trong từng mode để xem nó tròn méo như thế nào, xem tiếp dưới đây nè.
 ### `--soft` mode
-Đây là mode đầu tiên mà mình muốn nói đến cũng như là mode mà mình khuyên nên sử dụng vì độ an toàn của nó. 
+Đây là mode đầu tiên mà mình muốn nói đến cũng như là mode mà mình khuyên nên sử dụng vì độ an toàn của nó. Trước khi giải thích các nó hoạt động như thế nào, thì có lẽ chúng nên ghé qua một ví dụ nhỏ để thấy sơ bộ trước. 
 
+Thử nhìn xuống hình dưới và chú ý cho mình 2 commit mới nhất
+* Một commit kế cuối là **add file test-one & test-two**: ở đây mình sẽ tạo ra hai file markdown rỗng tên là *test-one* và *test-two* sau đó commit lên.
+* Commit cuối là **add text 'hello world' to test-one**: commit này mình sẽ thêm một đoạn text là *hello world* vào file *test-one* và lại commit lên tiếp.
 
+Sau cùng đây là cây git của chúng ta sau 2 commit trên:
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-1.png)
+
+Tiếp theo, chúng ta sẽ thử chỉnh sửa một tí ở cả hai file *test-one* và *test-two*
+* **test-one** mình sẽ đổi *hello world* -> *hello universe* sau đó mình stage nó luôn
+* **test-two** mình sẽ thêm đoạn text *git is cool* vào
+
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-2.png)
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-4.png)
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-3.png)
+
+Bây giờ mình sẽ giả vờ là mình đã thao tác sai cái khỉ gì đó và cần undo lại commit **add file test-one & test-two** (tức quay lại commit lúc hai file này còn là file rỗng), vậy có làm được không? Đương nhiên là được, đã nói ở trên rồi còn gì. Rồi vậy làm như nào? Trước tiên là nhớ lại công thức lúc nãy xem chúng ta cần gõ gì rồi ráp vô (như làm toán vậy):
+```
+git reset <mode> <commit>
+```
+Ô kê, vì chúng ta đang thực hành với mode là `--soft` và cái commit id mà chúng ta cần quay lại là `9dd2e411`. Nhìn vào chỗ này nè:
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-5.png)
+Đây là thứ mà chúng ta cần gõ vào terminal:
+```
+git reset --soft 9dd2e411
+```
+Để xem xem, sau khi `enter` thì chúng ta có gì:
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-6.png)
+Như mong muốn, chúng ta đã undo ngược về commit `9dd2e411` thành công, bởi vì ta thấy HEAD của chúng ta giờ đã lùi lại dòng chữ **add file test-one & test-two** trên git tree rồi chứ không còn ở chỗ cũ nữa. Tuy nhiên, tiếp theo là nhìn vào `git status`, trước khi chúng ta reset thì chúng ta có stage **test-one** vào staging area còn **test-two** thì không, sau reset xem ra staging area vẫn còn nguyên trạng thái cũ, vậy nó có thực sự là nguyên vẹn hay là không? Xem thử hình dưới nào:
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-7.png)
+![git reset --soft example 1](../img/blog-img/reset-commit-soft-eg-8.png)
+
+Có khác đấy, nếu như ở trước lúc chúng ta reset thì **test-one** của chúng ta thay đổi từ *hello world* -> *hello universe* (kéo lên trên xem lại nào), nhưng bây giờ nhìn xem, nó đã đổi sang từ rỗng -> *hello universe* các ông ạ (test-two thì không cần phải nói). Sau đây sẽ là màn giải thích cho vấn đề này.
+
+Khi chúng ta undo về một commit nào đó bằng `git reset --soft` (undo cách bao nhiêu commit cũng được) thì việc trước tiên nó sẽ làm đó là reset HEAD của chúng ta lùi về đúng với cái commit đó. Tuy nhiên với mode `--soft` thì nó không tác động đến những gì mà chúng ta thay đổi ở **staging area** và cả **working tree**, giống như trong trường hợp ở trên của chúng ta thì **test-one** được stage với *hello world* còn **test-two** thay đổi thành *git is cool* và không được thêm vào staging area, tất cả đều được giữ nguyên hết. Chỉ khác ở chỗ, thay vì trước khi reset, những thay đổi của chúng ta là từ commit **add text ‘hello world’ to test-one** thì sau khi reset nó sẽ là thay đổi từ commit **add file test-one & test-two** sang. Thêm một điều nữa là nếu như ở commit mà chúng ta undo về có commit thay đổi của một file khác nữa (trong trường hợp này là khác 2 file **test-one** và **test-two**, như **README** chẳng hạn) thì thay đổi của file đó sẽ **tự động được thêm vào staging area luôn** (viết tới đây thì mới nhớ là quên ví setup cho ví dụ đó <i class="em em-lying_face" aria-role="presentation" aria-label="LYING FACE"></i>). Đây là định nghĩa của `--soft` trên [git doc](https://git-scm.com/docs/git-reset):
+> Does not touch the index file or the working tree at all (but resets the head to <commit>, just like all modes do). This leaves all your changed files "Changes to be committed", as git status would put it.
 
 <<<<<Blog-Meta-Data>>>>>
 title:Undo trong git là như nào?;publishMode:non-publish;tags:git;date:2020/03/16 00:00:00;
